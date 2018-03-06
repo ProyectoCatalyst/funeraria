@@ -1,0 +1,48 @@
+{
+  "name": "funeraria",
+  "version": "1.0.0",
+  "description": "Arquitectura de proyecto",
+  "main": "./public/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProyectoCatalyst/funeraria.git"
+  },
+  "keywords": [
+    "MEAN",
+    "ANGULARJS",
+    "BOOTSTRAP4",
+    "JQUERY",
+    "NODEJS"
+  ],
+  "author": "Catalyst",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ProyectoCatalyst/funeraria/issues"
+  },
+  "homepage": "https://github.com/ProyectoCatalyst/funeraria#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.4.0",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-todo": "^5.4.0"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.15",
+    "angular": "^1.6.9",
+    "angular-facebook-api-factory": "^0.5.0",
+    "bootstrap": "^4.0.0",
+    "bootstrap-social": "^5.1.1",
+    "cloudinary": "^1.10.0",
+    "facebook-login": "^1.4.0",
+    "jquery": "^3.3.1",
+    "oclazyload": "^1.1.0",
+    "popper.js": "^1.12.9",
+    "provinces": "^1.11.0",
+    "sweetalert": "^2.1.0",
+    "ui-router-page-title": "^1.0.4"
+  }
+}
