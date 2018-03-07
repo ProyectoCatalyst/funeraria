@@ -1,0 +1,57 @@
+<main class="container">
+  <section class="row">
+
+    <div class="col-md-12">
+
+      <h1 class="text-center">Listar Usuarios</h1>
+      <table class="table mt-5">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Cédula</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Primer apellido</th>
+              <th scope="col">Segundo apellido</th>  
+              <th scope="col">Sexo</th>
+              <!-- <th scope="col">Provincia</th>
+              <th scope="col">Cantón</th> -->
+              <th scope="col">Distrito</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Correo</th>
+              <!-- <th scope="col">Contraseña</th>
+              <th scope="col">Fecha</th> -->
+              <th scope="col">Agregar difunto</th>
+              <th scope="col">Mostrar difunto</th>
+              <th scope="col">Editar usuario</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="usuario in vm.listarUsuarios">
+              <td>{{usuario.cedula}}</td>
+              <td>{{usuario.nombre}}</td>
+              <td>{{usuario.primerApellido}}</td>
+              <td>{{usuario.segundoApellido}}</td>
+              <td>{{usuario.sexo}}</td>
+              <!-- <td>{{usuario.provincia}}</td>
+              <td>{{usuario.canton}}</td> -->
+              <td>{{usuario.distrito}}</td>
+              <td>{{usuario.nombreUsuario}}</td>
+              <td>{{usuario.correo}}</td>
+              <!-- <td>{{usuario.contrasenna}}</td> -->
+              <!-- <td>{{usuario.fecha | date:'dd-MM-yyyy'}}</td> -->
+              <td>
+                <button class="btn btn-primary" type="button" ng-click="vm.agregarDifunto(usuario)">Agregar Difunto</button>
+              </td>
+              <td>
+                <button class="btn btn-warning" type="button" ng-click="vm.listarDifunto(usuario)">Mostar difuntos</button>
+              </td>
+              <td>
+                <button class="btn btn-warning" type="button" ng-click="vm.editarUsuario(usuario)">Editar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table> 
+
+    </div>
+    
+  </section>
+</main>

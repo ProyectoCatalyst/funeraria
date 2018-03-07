@@ -1,0 +1,113 @@
+<div ng-include="'./components/includes/_header.html'"></div>
+
+<main class="container">
+
+  <section class="row">
+
+    <div class="col-md-12 mt-5">
+
+      <h1 class="text-center">Editar usuario: {{vm.usuarioActivo}}</h1>
+
+      <form name="frmModificarUsuarios" class="row mt-5" ng-submit="vm.editarUsuario(vm.usuarioEditar)">
+
+        <div class="col-md-4" name="frmRegistroUsuarios">
+
+          <div class="form-group">
+            <label for="txtCedula">Número de cédula:</label>
+            <input type="number" class="form-control" id="txtCedula" ng-model="vm.usuarioEditar.cedula" disabled>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="txtNombre">Nombre:</label>
+            <input type="text" class="form-control" id="txtNombre" ng-model="vm.usuarioEditar.nombre" required>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="txtPrimerApellido">Primer apellido:</label>
+            <input type="text" class="form-control" id="txtPrimerApellido" ng-model="vm.usuarioEditar.primerApellido" required>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="txtSegundoApellido">Segundo apellido:</label>
+            <input type="text" class="form-control" id="txtSegundoApellido" ng-model="vm.usuarioEditar.segundoApellido" required>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+
+        </div>
+        <div class="col-md-4">
+
+          <div class="form-group">
+            <label for="sltSexo">Sexo</label>
+            <select id="sltSexo" class="custom-select" ng-model="vm.usuarioEditar.sexo" required>
+              <option value="">Seleccione un sexo</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Otro">Otro</option>
+            </select>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+
+          <div class="form-group">
+            <label for="txtFechaNacimiento">Fecha de nacimiento:</label>
+            <input type="date" class="form-control" id="txtFechaNacimiento" ng-model="vm.usuarioEditar.fecha" required>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="sltProvincia">Provincia:</label>
+            <select id="sltProvincia" class="custom-select" ng-model="vm.usuarioEditar.provincia" required>
+              <option value="">Seleccione una provincia</option>
+              <option value="Provincia">Provincia</option>
+            </select>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="sltCanton">Cantón:</label>
+            <select id="sltCanton" class="custom-select" ng-model="vm.usuarioEditar.canton" required>
+              <option value="">Seleccione un cantón</option>
+              <option value="Cantón">Cantón</option>
+            </select>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+
+        </div>
+        <div class="col-md-4">
+
+          <div class="form-group">
+            <label for="sltDistrito">Distrito:</label>
+            <select id="sltDistrito" class="custom-select" ng-model="vm.usuarioEditar.distrito" required>
+              <option value="">Seleccione un distrito</option>
+              <option value="Distrito">Distrito</option>
+            </select>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="txtNombreUsuario">Nombre de usuario:</label>
+            <input type="text" class="form-control" id="txtNombreUsuario" ng-model="vm.usuarioEditar.nombreUsuario" required>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="txtEmail">Correo electrónico:</label>
+            <input type="email" class="form-control" id="txtEmail" ng-model="vm.usuarioEditar.correo" required>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="txtContrasenna">Contraseña:</label>
+            <input type="text" class="form-control" id="txtContrasenna" ng-model="vm.usuarioEditar.contrasenna" required>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+
+        </div>
+
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary">Modificar</button>
+          <button type="button" class="btn btn-danger" ng-click="vm.regresar()">Regresar</button>
+        </div>
+
+      </form>
+    </div>
+
+  </section>
+
+</main>
+
+<div ng-include="'./components/includes/_footer.html'"></div>
