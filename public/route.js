@@ -32,6 +32,21 @@
       },
       // controller: 'controladorRegistrarUsuario',
       // controllerAs: 'vm'
+    })
+    
+    .state('registroDifuntos', {
+      url: '/registro-difuntos',
+      templateUrl: './components/difuntos/registrarDifuntos/registrarDifuntos.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/difuntos/registrarDifuntos/registrarDifuntos.controller.js')
+        }]
+      },
+      data:{
+        pageTitle: 'Registrar difuntos | Funeraria'
+      },
+      controller: 'controladorRegistrarDifunto',
+      controllerAs: 'vm'
     });
 
     // .state('', {
