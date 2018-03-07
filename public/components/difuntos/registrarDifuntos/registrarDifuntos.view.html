@@ -6,26 +6,26 @@
 
         <div class="col-md-12 mt-5">
 
-            <h1 class="etxt-center">Registre difuntos</h1>
+            <h1 class="text-center">Registre difuntos</h1>
 
-            <form action=""class="row mt-5" name="frmRegistroDifuntos" ng-submit="">
+            <form action=""class="row mt-5" name="frmRegistroDifuntos" ng-submit="vm.registrarDifunto(vm.difunto)">
 
                 <div class="col-md-4">
                         <div class="form-group">
                             <label for="#nEdad">Edad: </label>
-                            <input type="number" class="form-control" id="nEdad">
+                            <input type="number" class="form-control" id="nEdad" ng-model="vm.difunto.edad">
                             <small class="form-text text-danger">* Campo requerido</small>
                         </div>
 
                     <div class="form-group">
                         <label for="#txtApodo">Apodo del difunto: </label>
-                        <input type="text" class="form-control" id="txtApodo">
+                        <input type="text" class="form-control" id="txtApodo" ng-model="vm.difunto.apodo">
                         <small class="form-text text-danger">* Campo requerido</small>
                     </div>
 
                     <div class="form-group">
                         <label for="#nTamanno">Estatura del difunto (en cm.): </label>
-                        <input type="number" class="form-control" id="nTamanno" required>
+                        <input type="number" class="form-control" id="nTamanno" ng-model="vm.difunto.estatura">
                         <small class="form-text text-danger">* Campo requerido</small>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                 
 
                 <div class="col-md-12">
-                    <input type="submit" value="Registrar difunto" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary">Registrar difunto</button>
                 </div>
             </form>
 

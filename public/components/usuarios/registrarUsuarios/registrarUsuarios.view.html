@@ -6,36 +6,39 @@
 
     <div class="col-md-12 mt-5">
 
-      <h1 class="text-center">Registro usuario</h1>
+      <h1 class="text-center">Registro de usuarios</h1>
 
-      <form action="" class="row mt-5" name="frmRegistroUsuarios" ng-submit="vm.registrarUsuario(vm.usuarioNuevo)">
+      <form name="frmRegistroUsuarios" class="row mt-5" ng-submit="vm.registrarUsuario(vm.usuarioNuevo)">
 
-        <div class="col-md-4">
+        <div class="col-md-4" name="frmRegistroUsuarios">
 
           <div class="form-group">
             <label for="txtCedula">Número de cédula:</label>
-            <input type="number" class="form-control" id="txtCedula">
+            <input type="number" class="form-control" id="txtCedula" ng-model="vm.usuarioNuevo.cedula" required>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
           <div class="form-group">
             <label for="txtNombre">Nombre:</label>
-            <input type="text" class="form-control" id="txtNombre">
+            <input type="text" class="form-control" id="txtNombre" ng-model="vm.usuarioNuevo.nombre" required>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
           <div class="form-group">
             <label for="txtPrimerApellido">Primer apellido:</label>
-            <input type="text" class="form-control" id="txtPrimerApellido">
+            <input type="text" class="form-control" id="txtPrimerApellido" ng-model="vm.usuarioNuevo.primerApellido" required>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
           <div class="form-group">
             <label for="txtSegundoApellido">Segundo apellido:</label>
-            <input type="text" class="form-control" id="txtSegundoApellido">
+            <input type="text" class="form-control" id="txtSegundoApellido" ng-model="vm.usuarioNuevo.segundoApellido" required>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
           <div class="form-group">
             <label for="sltSexo">Sexo</label>
-            <select id="sltSexo" class="custom-select" required>
-              <option value="">Seleccione una opción</option>
+            <select id="sltSexo" class="custom-select" ng-model="vm.usuarioNuevo.sexo" required>
+              <option value="">Seleccione un sexo</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Otro">Otro</option>
             </select>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
@@ -45,27 +48,30 @@
 
           <div class="form-group">
             <label for="txtFechaNacimiento">Fecha de nacimiento:</label>
-            <input type="date"class="form-control" id="txtFechaNacimiento">
+            <input type="date"class="form-control" id="txtFechaNacimiento" ng-model="vm.usuarioNuevo.fecha" required>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
           <div class="form-group">
             <label for="sltProvincia">Provincia:</label>
-            <select id="sltProvincia" class="custom-select" required>
+            <select id="sltProvincia" class="custom-select" ng-model="vm.usuarioNuevo.provincia" required>
               <option value="">Seleccione una provincia</option>
+              <option value="Provincia">Provincia</option>
             </select>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
           <div class="form-group">
             <label for="sltCanton">Cantón:</label>
-            <select id="sltCanton" class="custom-select" required>
+            <select id="sltCanton" class="custom-select" ng-model="vm.usuarioNuevo.canton" required>
               <option value="">Seleccione un cantón</option>
+              <option value="Cantón">Cantón</option>
             </select>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
           <div class="form-group">
             <label for="sltDistrito">Distrito:</label>
-            <select id="sltDistrito" class="custom-select" required>
+            <select id="sltDistrito" class="custom-select" ng-model="vm.usuarioNuevo.distrito" required>
               <option value="">Seleccione un distrito</option>
+              <option value="Distrito">Distrito</option>
             </select>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
@@ -75,22 +81,22 @@
 
           <div class="form-group">
             <label for="txtNombreUsuario">Nombre de usuario:</label>
-            <input type="text" class="form-control" id="txtNombreUsuario">
+            <input type="text" class="form-control" id="txtNombreUsuario" ng-model="vm.usuarioNuevo.nombreUsuario" required>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
           <div class="form-group">
             <label for="txtEmail">Correo electrónico:</label>
-            <input type="email" class="form-control" id="txtEmail">
+            <input type="email" class="form-control" id="txtEmail" ng-model="vm.usuarioNuevo.correo" required>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
           <div class="form-group">
             <label for="txtContrasenna">Contraseña:</label>
-            <input type="text" class="form-control" id="txtContrasenna">
+            <input type="text" class="form-control" id="txtContrasenna" ng-model="vm.usuarioNuevo.contrasenna" required>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
           <div class="form-group">
             <label for="txtConfirmarContrasenna">Confirmar contraseña:</label>
-            <input type="text" class="form-control" id="txtConfirmarContrasenna">
+            <input type="text" class="form-control" id="txtConfirmarContrasenna" ng-model="vm.usuarioNuevo.confirmarContrasenna" required>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
 

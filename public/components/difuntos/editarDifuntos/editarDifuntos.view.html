@@ -1,0 +1,47 @@
+<div ng-include="'./components/includes/_header.html'"></div>
+
+<main class="container">
+
+    <section class="row">
+
+        <div class="col-md-12 mt-5">
+
+            <h1 class="text-center">Edite difuntos</h1>
+
+            <form action=""class="row mt-5" name="frmEditarDifuntos" ng-submit="vm.editarDifunto(vm.difuntoEditar)">
+
+                <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="#nEdad">Edad: </label>
+                            <input type="number" class="form-control" id="nEdad" ng-model="vm.difuntoEditar.edad">
+                            <small class="form-text text-danger">* Campo requerido</small>
+                        </div>
+
+                    <div class="form-group">
+                        <label for="#txtApodo">Apodo del difunto: </label>
+                        <input type="text" class="form-control" id="txtApodo" ng-model="vm.difuntoEditar.apodo">
+                        <small class="form-text text-danger">* Campo requerido</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="#nTamanno">Estatura del difunto (en cm.): </label>
+                        <input type="number" class="form-control" id="nTamanno" ng-model="vm.difuntoEditar.estatura">
+                        <small class="form-text text-danger">* Campo requerido</small>
+                    </div>
+                </div>
+
+                
+
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Editar difunto</button>
+                    <button type="click" class="btn btn-danger" ng-click="vm.regresar()">Regresar</button>
+                </div>
+            </form>
+
+        </div>
+
+    </section>
+
+</main>
+
+<div ng-include="'./components/includes/_footer.html'"></div>
