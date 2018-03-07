@@ -113,7 +113,22 @@
         },
         controller: 'controladorEditarDifuntos',
         controllerAs: 'vm'
-      });
+      })
+
+      .state('iniciarSesión', {
+      url: '/iniciarSesion',
+      templateUrl: './components/login/login.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/login/login.controller.js')
+        }]
+      },
+      data:{
+        pageTitle: 'Inicio de sesión | Funeraria'
+      },
+      controller: 'controladorInicioSesion',
+      controllerAs: 'vm'
+    });
 
     // .state('', {
     //   url: '',

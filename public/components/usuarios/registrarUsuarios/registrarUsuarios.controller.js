@@ -32,7 +32,9 @@
           title: "Registro exitoso",
           text: "Usuario registrado correctamente",
           icon: "success",
+          button: "Aceptar"
         });
+        $state.go('iniciarSesión');
       }
     }
   }
