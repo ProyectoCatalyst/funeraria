@@ -13,7 +13,7 @@
     $stateProvider
     .state('landingPage', {
       url: '/',
-      templateUrl: './components/landingPage/landinPage.view.html',
+      templateUrl: './components/landingPage/landingPage.view.html',
       data:{
         pageTitle: 'Inicio | Funeraria'
       }
