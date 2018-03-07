@@ -11,6 +11,7 @@
         let publicAPI = {
             retornarDifuntos: _retornarDifuntos,
             agregarDifunto: _agregarDifunto,
+            actualizarDifunto: _actualizarDifunto,
         };
         return publicAPI;
 
@@ -34,6 +35,10 @@
                 });
             }
             return listaDifuntos
+        }
+
+        function _actualizarDifunto(plistaDifuntosOriginal){
+            localStorage.setItem('listaDifuntosLS', JSON.stringify(plistaDifuntosOriginal))          
         }
     }
 })()

@@ -5,9 +5,9 @@
     .module('funeraria')
     .controller('controladorRegistrarDifunto', controladorRegistrarDifunto);
 
-    controladorRegistrarDifunto.$inject = ['servicioDifunto'];
+    controladorRegistrarDifunto.$inject = ['$state', 'servicioDifunto'];
 
-    function controladorRegistrarDifunto(servicioDifunto){
+    function controladorRegistrarDifunto($state, servicioDifunto){
         let vm = this;
 
         vm.nuevoDifunto={}
@@ -22,6 +22,8 @@
                 servicioDifunto.agregarDifunto(objDifunto);
                 
                 swal("Difunto agregado en el sistema", "Un gusto atenderle", "success");
+
+                $state.go('listarDifuntos');
             }
 
             
@@ -30,9 +32,6 @@
         function verificarDifunto(pobjDifunto){
             let listaDifuntos = servicioDifunto.retornarDifuntos(),
                 repetido = false;
-
-                console.log(listaDifuntos);
-                console.log(pobjDifunto.apodo);
 
             for(let i=0; i<listaDifuntos.length; i++){
                 if(listaDifuntos[i].retornarApodo() == pobjDifunto.apodo){

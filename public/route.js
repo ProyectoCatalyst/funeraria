@@ -47,6 +47,39 @@
       },
       controller: 'controladorRegistrarDifunto',
       controllerAs: 'vm'
+    })
+    
+    .state('listarDifuntos', {
+      url: '/listar-difuntos',
+      templateUrl: './components/difuntos/listarDifuntos/listarDifuntos.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/difuntos/listarDifuntos/listarDifuntos.controller.js')
+        }]
+      },
+      data:{
+        pageTitle: 'Lista difuntos | Funeraria'
+      }, 
+      controller: 'contrtoladorListaDifuntos',
+      controllerAs: 'vm'
+    })
+    
+    .state('editarDifuntos', {
+      url: '/editar-difuntos',
+      templateUrl: './components/difuntos/editarDifuntos/editarDifuntos.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/difuntos/editarDifuntos/editarDifuntos.controller.js')
+        }]
+      },
+      params:{
+        objDifuntoEditar : ''
+      }, 
+      data:{
+        pageTitle: 'Editar difunto | Funeraria'
+      },
+      controller: 'controladorEditarDifuntos',
+      controllerAs: 'vm'
     });
 
     // .state('', {
