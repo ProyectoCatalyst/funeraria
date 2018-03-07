@@ -17,6 +17,21 @@
       data:{
         pageTitle: 'Inicio | Funeraria'
       }
+    })
+
+    .state('registroUsuarios', {
+      url: '/registrarUsuario',
+      templateUrl: './components/usuarios/registrarUsuarios/registrarUsuarios.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/usuarios/registrarUsuarios/registrarUsuarios.controller.js')
+        }]
+      },
+      data:{
+        pageTitle: 'Registro | Funeraria'
+      },
+      // controller: 'controladorRegistrarUsuario',
+      // controllerAs: 'vm'
     });
 
     // .state('', {

@@ -1,0 +1,110 @@
+<div ng-include="'./components/includes/_header.html'"></div>
+
+<main class="container">
+
+  <section class="row">
+
+    <div class="col-md-12 mt-5">
+
+      <h1 class="text-center">Registro usuario</h1>
+
+      <form action="" class="row mt-5">
+
+        <div class="col-md-4" name="frmRegistroUsuarios" ng-submit="vm.registrarUsuario(vm.usuarioNuevo)">
+
+          <div class="form-group">
+            <label for="txtCedula">Número de cédula:</label>
+            <input type="number" class="form-control" id="txtCedula">
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="txtNombre">Nombre:</label>
+            <input type="text" class="form-control" id="txtNombre">
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="txtPrimerApellido">Primer apellido:</label>
+            <input type="text" class="form-control" id="txtPrimerApellido">
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="txtSegundoApellido">Segundo apellido:</label>
+            <input type="text" class="form-control" id="txtSegundoApellido">
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="sltSexo">Sexo</label>
+            <select id="sltSexo" class="custom-select" required>
+              <option value="">Seleccione una opción</option>
+            </select>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+
+        </div>
+        <div class="col-md-4">
+
+          <div class="form-group">
+            <label for="txtFechaNacimiento">Fecha de nacimiento:</label>
+            <input type="date"class="form-control" id="txtFechaNacimiento">
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="sltProvincia">Provincia:</label>
+            <select id="sltProvincia" class="custom-select" required>
+              <option value="">Seleccione una provincia</option>
+            </select>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="sltCanton">Cantón:</label>
+            <select id="sltCanton" class="custom-select" required>
+              <option value="">Seleccione un cantón</option>
+            </select>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="sltDistrito">Distrito:</label>
+            <select id="sltDistrito" class="custom-select" required>
+              <option value="">Seleccione un distrito</option>
+            </select>
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+
+        </div>
+        <div class="col-md-4">
+
+          <div class="form-group">
+            <label for="txtNombreUsuario">Nombre de usuario:</label>
+            <input type="text" class="form-control" id="txtNombreUsuario">
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="txtEmail">Correo electrónico:</label>
+            <input type="email" class="form-control" id="txtEmail">
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="txtContrasenna">Contraseña:</label>
+            <input type="text" class="form-control" id="txtContrasenna">
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+          <div class="form-group">
+            <label for="txtConfirmarContrasenna">Confirmar contraseña:</label>
+            <input type="text" class="form-control" id="txtConfirmarContrasenna">
+            <small class="form-text text-danger">* Campo requerido</small>
+          </div>
+
+        </div>
+
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary">Registrar usuario</button>
+        </div>
+
+      </form>
+    </div>
+
+  </section>
+
+</main>
+
+<div ng-include="'./components/includes/_footer.html'"></div>
