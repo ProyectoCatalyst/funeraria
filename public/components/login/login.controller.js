@@ -33,7 +33,7 @@
     }
 
     vm.registrar = () => {
-      $state.go('registrarUsuarios');
+      $state.go('registroUsuarios');
     }
   }
 })();
