@@ -134,6 +134,55 @@
       },
       controller: 'controladorInicioSesion',
       controllerAs: 'vm'
+    })
+    
+    .state('registrarAnimadores', {
+      url: '/registrarAnimadores',
+      templateUrl: '/components/animadores/registrarAnimadores/registrarAnimadores.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/animadores/registrarAnimadores/registrarAnimadores.controller.js')
+        }]
+      },
+      data:{
+        pageTitle: 'Registro animadores | Funeraria'
+      },
+      controller: 'controladorRegistroAnimadores',
+      controllerAs: 'vm'
+    })
+    
+    .state('listarAnimadores', {
+      url: '/listarAnimadores',
+      templateUrl: './components/animadores/listarAnimadores/listarAnimadores.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/animadores/listarAnimadores/listarAnimadores.controller.js')
+        }]
+      },
+      data:{
+        pageTitle: 'Listar animadores | Funeraria'
+      },
+      controller: 'controladorListaAnimadores',
+      controllerAs: 'vm'
+    })
+
+
+    .state('editarAnimadores', {
+      url: '/editarAnimadores',
+      templateUrl: './components/animadores/editarAnimadores/editarAnimadores.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/animadores/editarAnimadores/editarAnimadores.controller.js')
+        }]
+      },
+      params: {
+        objAnimadorMod: ''
+      },
+      data:{
+        pageTitle: 'Editar animadores | Funeraria'
+      },
+      controller: 'controladorEditarAnimadores',
+      controllerAs: 'vm'
     });
 
     // .state('', {

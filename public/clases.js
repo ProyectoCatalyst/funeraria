@@ -60,3 +60,18 @@ class Difunto {
     this.clienteID = pCedulaCliente;
   }
 }
+
+class Animador{
+  constructor(pcodigo, pnombre, pcosto, pestado){
+    this.codigo = pcodigo;
+    this.nombre = pnombre;
+    this.costo = pcosto;
+    this.estado = pestado;
+  }
+  getCodigo(){
+    return this.codigo;
+  }
+  getEstado(){
+    return this.estado;
+  }
+}
