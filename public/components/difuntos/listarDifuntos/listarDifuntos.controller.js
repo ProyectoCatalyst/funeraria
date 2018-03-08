@@ -9,9 +9,9 @@
     function controladorListaDifuntos($stateParams, $state, servicioUsuarios) {
         let vm = this;
 
-        //   if(!$stateParams.objUsuario){
-        //     $state.go('listarUsuarios'); 
-        //   }
+        if (!$stateParams.objUsuario) {
+            $state.go('listarUsuarios');
+        }
 
         let objUsuarioSinFormato = JSON.parse($stateParams.objUsuario);
 

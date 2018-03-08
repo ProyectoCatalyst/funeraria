@@ -1,36 +1,29 @@
 [
     {
-        "idPais": "506",
         "name": "San José",
         "_id": "0"
     },
     {
-        "idPais": "506",
         "name": "Alajuela",
         "_id": "1"
     },
     {
-        "idPais": "506",
         "name": "Cartago",
         "_id": "2"
     },
     {
-        "idPais": "506",
         "name": "Heredia",
         "_id": "3"
     },
     {
-        "idPais": "506",
         "name": "Guanacaste",
         "_id": "4"
     },
     {
-        "idPais": "506",
         "name": "Puntarenas",
         "_id": "5"
     },
     {
-        "idPais": "506",
         "name": "Limón",
         "_id": "6"
     }

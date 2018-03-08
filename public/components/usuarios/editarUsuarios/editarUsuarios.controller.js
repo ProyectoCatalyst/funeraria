@@ -35,9 +35,22 @@
     vm.usuarioEditar.contrasenna = objUsuarioTemp.contrasenna;
 
     vm.editarUsuario = (pusuarioactualizar) => {
+      let todosLosUsuarios = servicioUsuarios.retornarUsuario();
 
       let objUsuarioFormato = new Usuario(pusuarioactualizar.cedula, pusuarioactualizar.nombre, pusuarioactualizar.primerApellido, pusuarioactualizar.segundoApellido, pusuarioactualizar.sexo, pusuarioactualizar.fecha, pusuarioactualizar.provincia, pusuarioactualizar.canton, pusuarioactualizar.distrito, pusuarioactualizar.nombreUsuario, pusuarioactualizar.correo, pusuarioactualizar.contrasenna);
+
+      // for (let i = 0; i < todosLosUsuarios.length; i++) {
+      //   if(objUsuarioFormato.cedula == todosLosUsuarios[i].getCedula()){
+
+      //   }
+      // }
       
+      // objUsuarioFormato.getDifuntos().forEach(objTemp => {
+      //   let objTempDifunto = new Difunto(objTemp.edad, objTemp.apodo, objTemp.sexo, objTemp.estatura);
+
+      //   objUsuarioFormato.setDifuntos(objTempDifunto);
+
+      // });
       let actualizarCorrecto = servicioUsuarios.actualizarUsuario(objUsuarioFormato);
 
       if(actualizarCorrecto == true){

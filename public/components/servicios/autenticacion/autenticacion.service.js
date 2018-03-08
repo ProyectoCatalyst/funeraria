@@ -40,7 +40,7 @@
     
     function _getAuthUser() {
       if (sessionService.session) {
-        return sessionService.session.user;
+        return sessionService.session;
       }else{
         return undefined;
       }

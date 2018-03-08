@@ -55,7 +55,7 @@
           let objUsuarioTemp = new Usuario(obj.cedula,obj.nombre, obj.primerApellido, obj.segundoApellido, obj.sexo, obj.fecha, obj.provincia, obj.canton, obj.distrito, obj.nombreUsuario, obj.correo, obj.contrasenna);
           
           obj.difuntos.forEach(objdifunto => {
-            let obtDifuntoTemp = new Difunto(objdifunto.apodo, objdifunto.edad, objdifunto.sexo, objdifunto.estatura);
+            let obtDifuntoTemp = new Difunto(objdifunto.edad, objdifunto.apodo, objdifunto.sexo, objdifunto.estatura);
 
             obtDifuntoTemp.setCedulaCliente(objUsuarioTemp.getCedula());
 

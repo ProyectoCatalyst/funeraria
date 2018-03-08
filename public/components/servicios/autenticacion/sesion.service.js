@@ -11,6 +11,10 @@
       sessionStorage.setItem('session', JSON.stringify(data));
     };
 
+    this.session = () => {
+      return sessionStorage.getItem('session');
+    }
+
     this.destroy = function () {
       delete this.session;
       sessionStorage.removeItem('session');
