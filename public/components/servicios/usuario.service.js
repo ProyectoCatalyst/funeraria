@@ -21,7 +21,9 @@
     let publicAPI = {
       agregarUsuario: _agregarUsuario,
       retornarUsuario: _retornarUsuario,
-      actualizarUsuario: _actualizarUsuario
+      actualizarUsuario: _actualizarUsuario,
+      agregarDifunto: _agregarDifunto,
+      retornarDifunto: _retornarDifunto
     };
     return publicAPI;
 
@@ -51,13 +53,14 @@
         listaUsuarios.forEach(obj => {
 
           let objUsuarioTemp = new Usuario(obj.cedula,obj.nombre, obj.primerApellido, obj.segundoApellido, obj.sexo, obj.fecha, obj.provincia, obj.canton, obj.distrito, obj.nombreUsuario, obj.correo, obj.contrasenna);
-          // obj.difuntos.forEach(objdifunto => {
-          //   let obtDifuntoTemp = new Difunto(objdifunto.apodo, objdifunto.genero, objdifunto.edad, objdifunto.tamanno);
+          
+          obj.difuntos.forEach(objdifunto => {
+            let obtDifuntoTemp = new Difunto(objdifunto.apodo, objdifunto.edad, objdifunto.sexo, objdifunto.estatura);
 
-          //   obtDifuntoTemp.setCedulaCliente(objUsuarioTemp.getCedula());
+            obtDifuntoTemp.setCedulaCliente(objUsuarioTemp.getCedula());
 
-          //   objUsuarioTemp.setDifunto(obtDifuntoTemp);
-          // })
+            objUsuarioTemp.setDifuntos(obtDifuntoTemp);
+          })
           todosLosUsuarios.push(objUsuarioTemp);
         });
       }
@@ -78,6 +81,32 @@
       actualizarLocal(listaUsuarios);
 
       return valido;
+    }
+
+    function _agregarDifunto(adatos) {
+      let todosLosUsuarios = _retornarUsuario();
+      let registroExitoso = false;
+
+      for (let i = 0; i < todosLosUsuarios.length; i++) {
+        if (adatos[0].getCedula() === todosLosUsuarios[i].getCedula()) {
+          todosLosUsuarios[i].setDifuntos(adatos[1]);
+          registroExitoso = true;
+        }
+      }
+      actualizarLocal(todosLosUsuarios);
+      return registroExitoso;
+    }
+
+    function _retornarDifunto(pidusuario) {
+      let todosLosUsuarios = _retornarUsuario();
+      let todosLosDifuntos = [];
+      
+      for(let i = 0; i < todosLosUsuarios.length; i++){
+        if(pidusuario == todosLosUsuarios[i].getCedula()){
+          todosLosDifuntos = todosLosUsuarios[i].getDifuntos();
+        }
+      }
+      return todosLosDifuntos;
     }
 
 

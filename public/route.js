@@ -78,6 +78,9 @@
         data:{
           pageTitle: 'Registrar difuntos | Funeraria'
         },
+        params: {
+          objUsuario: ''
+        },
         controller: 'controladorRegistrarDifunto',
         controllerAs: 'vm'
       })
@@ -92,8 +95,11 @@
         },
         data:{
           pageTitle: 'Lista difuntos | Funeraria'
+        },
+        params: {
+          objUsuario: ''
         }, 
-        controller: 'contrtoladorListaDifuntos',
+        controller: 'controladorListaDifuntos',
         controllerAs: 'vm'
       })
       

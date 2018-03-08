@@ -1,25 +1,32 @@
 (() => {
     'use strict';
-
     angular
-    .module('funeraria')
-    .controller('contrtoladorListaDifuntos', contrtoladorListaDifuntos);
+        .module('funeraria')
+        .controller('controladorListaDifuntos', controladorListaDifuntos);
 
-    contrtoladorListaDifuntos.$inject = ['$state', '$stateParams', 'servicioDifunto'];
+    controladorListaDifuntos.$inject = ['$stateParams', '$state', 'servicioUsuarios'];
 
-    function contrtoladorListaDifuntos($state, $stateParams, servicioDifunto){
-
+    function controladorListaDifuntos($stateParams, $state, servicioUsuarios) {
         let vm = this;
 
-        vm.listarDifuntos = servicioDifunto.retornarDifuntos();
+        //   if(!$stateParams.objUsuario){
+        //     $state.go('listarUsuarios'); 
+        //   }
 
-        vm.editarDifuntos = (pdifuntos) => {
-            $state.go('editarDifuntos', {objDifuntoEditar : JSON.stringify(pdifuntos)});
+        let objUsuarioSinFormato = JSON.parse($stateParams.objUsuario);
+
+        let objUsuarioTemp = new Usuario(objUsuarioSinFormato.cedula, objUsuarioSinFormato.nombre, objUsuarioSinFormato.primerApellido, objUsuarioSinFormato.segundoApellido, objUsuarioSinFormato.sexo, objUsuarioSinFormato.fecha, objUsuarioSinFormato.provincia, objUsuarioSinFormato.canton, objUsuarioSinFormato.distrito, objUsuarioSinFormato.nombreUsuario, objUsuarioSinFormato.correo, objUsuarioSinFormato.contrasenna);
+
+        vm.usuarioActivo = `${objUsuarioTemp.nombre} ${objUsuarioTemp.primerApellido} ${objUsuarioTemp.segundoApellido}`;
+
+        vm.listarDifuntos = servicioUsuarios.retornarDifunto(objUsuarioTemp.cedula);
+
+        //   vm.agregarEntierro = (pdifunto) => {
+        //     $state.go('registrarEntierro', {objDifunto : JSON.stringify(pdifunto)});
+        //   }
+        vm.regresar = () => {
+            $state.go('listarUsuarios');
         }
 
-        vm.agregarDifuntos = () =>{
-            $state.go('registroDifuntos');
-        }
     }
-
 })();

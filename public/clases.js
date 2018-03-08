@@ -45,13 +45,18 @@ class Usuario {
 }
 
 class Difunto {
-  constructor(pedad, papodo, pestatura){
+  constructor(pedad, papodo, psexo, pestatura){
       this.edad = pedad;
       this.apodo = papodo;
+      this.sexo = psexo;
       this.estatura = pestatura;
   }
 
-  retornarApodo(){
-      return this.apodo;
+  setEntierro(pnuevoEntierro) {
+    this.entierro = pnuevoEntierro;
+  }
+
+  setCedulaCliente(pCedulaCliente) {
+    this.clienteID = pCedulaCliente;
   }
 }
