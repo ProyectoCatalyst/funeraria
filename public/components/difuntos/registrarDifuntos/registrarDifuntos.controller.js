@@ -1,44 +1,54 @@
 (() => {
     'use strict';
-
     angular
-    .module('funeraria')
-    .controller('controladorRegistrarDifunto', controladorRegistrarDifunto);
+        .module('funeraria')
+        .controller('controladorRegistrarDifunto', controladorRegistrarDifunto);
 
-    controladorRegistrarDifunto.$inject = ['$state', 'servicioDifunto'];
+    controladorRegistrarDifunto.$inject = ['$stateParams', '$state', 'servicioUsuarios'];
 
-    function controladorRegistrarDifunto($state, servicioDifunto){
+    function controladorRegistrarDifunto($stateParams, $state, servicioUsuarios) {
         let vm = this;
 
-        vm.nuevoDifunto={}
+        if (!$stateParams.objUsuario) {
+            $state.go('listarUsuarios');
+        }
 
-        vm.registrarDifunto = (pdifunto) => {
-            let objDifunto = new Difunto(pdifunto.edad, pdifunto.apodo, pdifunto.estatura),
-                existente = verificarDifunto(objDifunto);
+        let objUsuarioSinFormato = JSON.parse($stateParams.objUsuario);
 
-            if(existente == true){
-                swal("El difunto ya esta en el sistema", "Intenta con otro no registrado", "error");
-            }else{
-                servicioDifunto.agregarDifunto(objDifunto);
-                
-                swal("Difunto agregado en el sistema", "Un gusto atenderle", "success");
+        let objUsuarioTemp = new Usuario(objUsuarioSinFormato.cedula, objUsuarioSinFormato.nombre, objUsuarioSinFormato.primerApellido, objUsuarioSinFormato.segundoApellido, objUsuarioSinFormato.sexo, objUsuarioSinFormato.fecha, objUsuarioSinFormato.provincia, objUsuarioSinFormato.canton, objUsuarioSinFormato.distrito, objUsuarioSinFormato.nombreUsuario, objUsuarioSinFormato.correo, objUsuarioSinFormato.contrasenna);
 
+        vm.usuarioActivo = `${objUsuarioTemp.nombre} ${objUsuarioTemp.primerApellido} ${objUsuarioTemp.segundoApellido}`;
+
+
+        vm.difuntoNuevo = {};
+
+        vm.registrarDifunto = (pdifuntoNuevo) => {
+
+            let objUsuarioTemp = new Usuario(objUsuarioSinFormato.cedula, objUsuarioSinFormato.nombre, objUsuarioSinFormato.primerApellido, objUsuarioSinFormato.segundoApellido, objUsuarioSinFormato.sexo, objUsuarioSinFormato.fecha, objUsuarioSinFormato.provincia, objUsuarioSinFormato.canton, objUsuarioSinFormato.distrito, objUsuarioSinFormato.nombreUsuario, objUsuarioSinFormato.correo, objUsuarioSinFormato.contrasenna);
+
+            let objDifunto = new Difunto(pdifuntoNuevo.edad, pdifuntoNuevo.apodo, pdifuntoNuevo.sexo, pdifuntoNuevo.estatura);
+
+            objDifunto.setCedulaCliente(objUsuarioTemp.getCedula());
+
+            let datos = [objUsuarioTemp, objDifunto];
+
+            let registro = servicioUsuarios.agregarDifunto(datos);
+
+            if (registro == true) {
+                swal({
+                    title: "Registro exitoso",
+                    text: "Difunto registrado correctamente",
+                    icon: "success",
+                    button: "Aceptar"
+                });
+                vm.difuntoNuevo = null;
                 $state.go('listarDifuntos');
             }
-
-            
         }
 
-        function verificarDifunto(pobjDifunto){
-            let listaDifuntos = servicioDifunto.retornarDifuntos(),
-                repetido = false;
-
-            for(let i=0; i<listaDifuntos.length; i++){
-                if(listaDifuntos[i].retornarApodo() == pobjDifunto.apodo){
-                    repetido = true;
-                }
-            }
-            return repetido
+        vm.regresar = () => {
+            $state.go('editarUsuarios');
         }
+
     }
-})()
+})();

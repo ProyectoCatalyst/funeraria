@@ -1,38 +1,40 @@
-<div ng-include="'./components/includes/_header.html'"></div>
-
 <main class="container">
-
     <section class="row">
-        <div class="col-md-12 mt-5">
-            <h1 class="text-center">Lista de difuntos</h1>
 
-            <table class="table text-center mt-5">
-                <thead>
+        <div class="col-md-12">
+
+            <h1 class="text-center">Difuntos de {{vm.usuarioActivo}} </h1>
+            <table class="table mt-5">
+                <thead class="thead-dark">
                     <tr>
-                        <th>Edad</th>
-                        <th>Apodo</th>
-                        <th>Estatura</th>
-                        <th>Opción</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Apodo</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col">Estatura</th>
+                        <th scope="col">Agregar entierro</th>
+                        <th scope="col">Modificar difunto</th>
                     </tr>
                 </thead>
-
                 <tbody>
-                    <tr ng-repeat="difuntos in vm.listarDifuntos">
-                        <td>{{difuntos.edad}}</td>
-                        <td>{{difuntos.apodo}}</td>
-                        <td>{{difuntos.estatura}} cm</td>
+                    <tr ng-repeat="difunto in vm.listarDifuntos">
+                        <td>{{difunto.edad}}</td>
+                        <td>{{difunto.apodo}}</td>
+                        <td>{{difunto.sexo}}</td>
+                        <td>{{difunto.estatura}}</td>
                         <td>
-                            <button type="click" class="btn btn-primary" ng-click="vm.editarDifuntos(difuntos)">
-                                Modificar difunto
-                            </button>
+                            <button class="btn btn-primary" type="button" ng-click="vm.agregarEntierro(usuario)">Agregar entierro</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" type="button" ng-click="vm.editarDifuntp(usuario)">Modificar difunto</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <button type="click" class="btn btn-success" ng-click="vm.agregarDifuntos ()">Agregar difunto</button>
-        </div>        
+
+        </div>
+        <div class="col-md-12">
+            <button type="button" class="btn btn-danger" ng-click="vm.regresar()">Regresar</button>
+        </div>
+
     </section>
-
 </main>
-
-<div ng-include="'./components/includes/_footer.html'"></div>
