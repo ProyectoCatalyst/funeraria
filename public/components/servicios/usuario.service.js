@@ -23,7 +23,9 @@
       retornarUsuario: _retornarUsuario,
       actualizarUsuario: _actualizarUsuario,
       agregarDifunto: _agregarDifunto,
-      retornarDifunto: _retornarDifunto
+      retornarDifunto: _retornarDifunto,
+      agregarEntierro: _agregarEntierro,
+      retornarEntierro: _retornarEntierro
     };
     return publicAPI;
 
@@ -109,6 +111,7 @@
       return todosLosDifuntos;
     }
 
+  
 
     function actualizarLocal(listaActualizada){
       localStorage.setItem('listaUsuariosLS', JSON.stringify(listaActualizada));

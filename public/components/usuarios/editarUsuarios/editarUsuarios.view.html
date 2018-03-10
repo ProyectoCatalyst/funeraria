@@ -54,32 +54,32 @@
           </div>
           <div class="form-group">
             <label for="sltProvincia">Provincia:</label>
-            <select id="sltProvincia" class="custom-select" ng-model="vm.usuarioEditar.provincia" required>
+            <select id="sltProvincia" class="custom-select" ng-model="vm.usuarioEditar.provincia" ng-change="vm.rellenarCantones(vm.usuarioEditar.provincia._id)" ng-options="provincia as provincia.name for provincia in vm.provincias track by provincia._id" required>
               <option value="">Seleccione una provincia</option>
-              <option value="Provincia">Provincia</option>
+              
             </select>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
           <div class="form-group">
             <label for="sltCanton">Cantón:</label>
-            <select id="sltCanton" class="custom-select" ng-model="vm.usuarioEditar.canton" required>
+            <select id="sltCanton" class="custom-select" ng-change="vm.rellenarDistrito(vm.usuarioEditar.canton._id)" ng-options="canton as canton.name for canton in vm.cantones track by canton._id" ng-model="vm.usuarioEditar.canton" required>
               <option value="">Seleccione un cantón</option>
-              <option value="Cantón">Cantón</option>
             </select>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
-
+        
         </div>
         <div class="col-md-4">
 
           <div class="form-group">
             <label for="sltDistrito">Distrito:</label>
-            <select id="sltDistrito" class="custom-select" ng-model="vm.usuarioEditar.distrito" required>
+            <select id="sltDistrito" class="custom-select" ng-options="distrito as distrito.name for distrito in vm.distritos track by distrito._id" ng-model="vm.usuarioEditar.distrito" required>
               <option value="">Seleccione un distrito</option>
               <option value="Distrito">Distrito</option>
             </select>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
+
           <div class="form-group">
             <label for="txtNombreUsuario">Nombre de usuario:</label>
             <input type="text" class="form-control" id="txtNombreUsuario" ng-model="vm.usuarioEditar.nombreUsuario" required>

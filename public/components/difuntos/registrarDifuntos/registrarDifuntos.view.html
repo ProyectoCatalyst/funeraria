@@ -11,15 +11,16 @@
             <form class="row mt-5" name="frmRegistroDifuntos" ng-submit="vm.registrarDifunto(vm.difuntoNuevo)">
 
                 <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="txtEdad">Edad: </label>
-                        <input type="number" class="form-control" id="txtEdad" ng-model="vm.difuntoNuevo.edad">
-                        <small class="form-text text-danger">* Campo requerido</small>
-                    </div>
 
                     <div class="form-group">
                         <label for="#txtApodo">Apodo del difunto: </label>
                         <input type="text" class="form-control" id="txtApodo" ng-model="vm.difuntoNuevo.apodo">
+                        <small class="form-text text-danger">* Campo requerido</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtEdad">Edad: </label>
+                        <input type="number" class="form-control" id="txtEdad" ng-model="vm.difuntoNuevo.edad">
                         <small class="form-text text-danger">* Campo requerido</small>
                     </div>
 

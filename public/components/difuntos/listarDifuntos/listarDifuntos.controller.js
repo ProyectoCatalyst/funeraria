@@ -21,9 +21,12 @@
 
         vm.listarDifuntos = servicioUsuarios.retornarDifunto(objUsuarioTemp.cedula);
 
-        //   vm.agregarEntierro = (pdifunto) => {
-        //     $state.go('registrarEntierro', {objDifunto : JSON.stringify(pdifunto)});
-        //   }
+        vm.agregarEntierro = (pdifunto) => {
+            $state.go('registrarEntierros', { objDifunto: JSON.stringify(pdifunto) });
+        }
+        vm.editarDifunto = (pdifunto) => {
+            $state.go('editarDifuntos', { objDifunto: JSON.stringify(pdifunto) });
+        }
         vm.regresar = () => {
             $state.go('listarUsuarios');
         }

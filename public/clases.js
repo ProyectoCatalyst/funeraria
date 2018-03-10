@@ -60,3 +60,13 @@ class Difunto {
     this.clienteID = pCedulaCliente;
   }
 }
+
+class Entierro {
+  constructor(phoraInicio, phoraFinal, pfecha, plugar, pprioridad) {
+    this.horaInicio = phoraInicio;
+    this.horaFinal = phoraFinal;
+    this.fecha = pfecha;
+    this.lugar = plugar;
+    this.prioridad = pprioridad;
+  }
+}

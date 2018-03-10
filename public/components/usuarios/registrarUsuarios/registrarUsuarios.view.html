@@ -55,6 +55,7 @@
             <label for="sltProvincia">Provincia:</label>
             <select id="sltProvincia" class="custom-select" ng-model="vm.usuarioNuevo.provincia" ng-change="vm.rellenarCantones(vm.usuarioNuevo.provincia._id)" ng-options="provincia as provincia.name for provincia in vm.provincias track by provincia._id" required>
               <option value="">Seleccione una provincia</option>
+              
             </select>
             <small class="form-text text-danger">* Campo requerido</small>
           </div>
