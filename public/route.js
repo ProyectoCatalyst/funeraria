@@ -183,6 +183,72 @@
       },
       controller: 'controladorEditarAnimadores',
       controllerAs: 'vm'
+    })
+    
+    .state('registrarFiesta', {
+      url: '/registrarFiesta',
+      templateUrl: './components/fiestas/registarFiestas/registrarFiestas.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/fiestas/registarFiestas/registrarFiestas.controller.js')
+        }]
+      },
+      data:{
+        pageTitle: 'Registrar fiestas | Funeraria'
+      },
+      controller: 'controladorRegistrarFiesta',
+      controllerAs: 'vm'
+    })
+    
+    .state('listarFiestas', {
+      url: '/listarFiestas',
+      templateUrl: './components/fiestas/listarFiestas/listarFiestas.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/fiestas/listarFiestas/listarFiestas.controller.js')
+        }]
+      },
+      data:{
+        pageTitle: 'Lista fiestas | Funeraria'
+      },
+      controller: 'controladorListarFiestas',
+      controllerAs: 'vm'
+    })
+    
+    .state('agregarAnimadores', {
+      url: '/agregarAnimadores',
+      templateUrl: './components/animadores/agregarAnimadores/agregarAnimadores.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/animadores/agregarAnimadores/agregarAnimadores.controller.js')
+        }]
+      },
+      params: {
+        objFiestaAgregar: ''
+      },
+      data:{
+        pageTitle: 'Agregar animadores | Funeraria'
+      },
+      controller: 'controladorAgregarAnimadores',
+      controllerAs: 'vm'
+    })
+    
+    .state('editarFiestas', {
+      url: '/editarFiestas',
+      templateUrl: './components/fiestas/editarFiestas/editarFiestas.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/fiestas/editarFiestas/editarFiestas.controller.js')
+        }]
+      },
+      params: {
+        objFiestaMod: ''
+      },
+      data:{
+        pageTitle: 'Agregar fiestas | Funeraria'
+      },
+      controller: 'controladorEditarFiestas',
+      controllerAs: 'vm'
     });
 
     // .state('', {

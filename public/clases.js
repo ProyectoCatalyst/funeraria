@@ -74,4 +74,26 @@ class Animador{
   getEstado(){
     return this.estado;
   }
+  getCosto(){
+    return this.costo;
+  }
+}
+
+class Fiesta{
+  constructor(pfecha, phoras, ppago, pcostoTotal){
+    this.fecha = pfecha;
+    this.horas = phoras;
+    this.pago = ppago;
+    this.costoTotal = pcostoTotal;
+    this.animadores = [];
+  }
+  getFecha(){
+    return this.fecha;
+  }
+  getAnimadores(){
+    return this.animadores;
+  }
+  setAnimadores(pnuevoAnimador){
+    this.animadores.push(pnuevoAnimador);
+  }
 }
