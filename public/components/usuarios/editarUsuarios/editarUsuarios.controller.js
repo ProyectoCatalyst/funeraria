@@ -90,7 +90,7 @@
           let objUsuarioLS = todosLosUsuarios[i];
 
           objUsuarioLS.getDifuntos().forEach(objTemp => {
-            let objTempDifunto = new Difunto(objTemp.edad, objTemp.apodo, objTemp.sexo, objTemp.estatura);
+            let objTempDifunto = new Difunto(objTemp.difuntoID, objTemp.edad, objTemp.apodo, objTemp.sexo, objTemp.estatura);
 
             objUsuarioFormato.setDifuntos(objTempDifunto);
 
