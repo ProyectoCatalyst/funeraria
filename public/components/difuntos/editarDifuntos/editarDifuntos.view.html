@@ -6,15 +6,38 @@
 
         <div class="col-md-12 mt-5">
 
-            <h1 class="text-center">Edite difuntos</h1>
+            <h1 class="text-center">Editando a {{vm.difuntoActivo}}</h1>
 
             <form class="row mt-5" name="frmEditarDifuntos" ng-submit="vm.editarDifuntos(vm.difuntoEditar)">
 
                 <div class="col-md-4">
 
                     <div class="form-group">
+                        <label for="#txtApodo">Cédula del cliente: </label>
+                        <input type="text" class="form-control" id="txtApodo" ng-model="vm.difuntoEditar.clienteID" disabled>
+                        <small class="form-text text-danger">* Campo requerido</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="#txtApodo">Código numerico: </label>
+                        <input type="text" class="form-control" id="txtApodo" ng-model="vm.difuntoEditar.difuntoID" disabled>
+                        <small class="form-text text-danger">* Campo requerido</small>
+                    </div>
+
+                    <div class="form-group">
                         <label for="#txtApodo">Apodo del difunto: </label>
-                        <input type="text" class="form-control" id="txtApodo" ng-model="vm.difuntoEditar.apodo" disabled>
+                        <input type="text" class="form-control" id="txtApodo" ng-model="vm.difuntoEditar.apodo">
+                        <small class="form-text text-danger">* Campo requerido</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sltSexo">Sexo</label>
+                        <select id="sltSexo" class="custom-select" ng-model="vm.difuntoEditar.sexo" required>
+                            <option value="">Seleccione un sexo</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
                         <small class="form-text text-danger">* Campo requerido</small>
                     </div>
 

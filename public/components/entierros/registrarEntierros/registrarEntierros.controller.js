@@ -20,11 +20,13 @@
 
       let objEntierroTem = new Entierro(pnuevoEntierro.horaInicio, pnuevoEntierro.fecha,  pnuevoEntierro.horaFin, pnuevoEntierro.lugar, pnuevoEntierro.prioridad);
 
-      let objNuevoDifunto = new Difunto(objsinFormatoDifunto.edad, objsinFormatoDifunto.apodo, objsinFormatoDifunto.sexo, objsinFormatoDifunto.estatura);
+      let objNuevoDifunto = new Difunto(objsinFormatoDifunto.difuntoID, objsinFormatoDifunto.edad, objsinFormatoDifunto.apodo, objsinFormatoDifunto.sexo, objsinFormatoDifunto.estatura);
 
-      let aDifuntos = [objNuevoDifunto, objEntierroTem];
+      objNuevoDifunto.setCedulaCliente(objsinFormatoDifunto.clienteID);
 
-      let registro = servicioUsuarios.agregarEntierro(IDCliente);
+      let datos = [objNuevoDifunto, objEntierroTem];
+
+      let registro = servicioUsuarios.agregarEntierro(datos);
 
       if (registro == true) {
         swal({
@@ -37,7 +39,7 @@
     }
 
     vm.regresar = () => {
-      $state.go('listarUsuarios');
+      $state.go('listarDifuntos');
     }
   }
 })();

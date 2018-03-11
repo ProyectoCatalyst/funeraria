@@ -24,6 +24,7 @@
       actualizarUsuario: _actualizarUsuario,
       agregarDifunto: _agregarDifunto,
       retornarDifunto: _retornarDifunto,
+      actualizarDifunto: _actualizarDifunto,
       agregarEntierro: _agregarEntierro,
       retornarEntierro: _retornarEntierro
     };
@@ -44,7 +45,7 @@
 
     function _retornarUsuario() {
       let todosLosUsuarios = [],
-          listaUsuarios = JSON.parse(localStorage.getItem('listaUsuariosLS'));
+        listaUsuarios = JSON.parse(localStorage.getItem('listaUsuariosLS'));
 
       if (listaUsuarios == null) {
 
@@ -54,13 +55,17 @@
 
         listaUsuarios.forEach(obj => {
 
-          let objUsuarioTemp = new Usuario(obj.cedula,obj.nombre, obj.primerApellido, obj.segundoApellido, obj.sexo, obj.fecha, obj.provincia, obj.canton, obj.distrito, obj.nombreUsuario, obj.correo, obj.contrasenna);
-          
+          let objUsuarioTemp = new Usuario(obj.cedula, obj.nombre, obj.primerApellido, obj.segundoApellido, obj.sexo, obj.fecha, obj.provincia, obj.canton, obj.distrito, obj.nombreUsuario, obj.correo, obj.contrasenna);
+
           obj.difuntos.forEach(objdifunto => {
-            let obtDifuntoTemp = new Difunto(objdifunto.edad, objdifunto.apodo, objdifunto.sexo, objdifunto.estatura);
+            let obtDifuntoTemp = new Difunto(objdifunto.difuntoID, objdifunto.edad, objdifunto.apodo, objdifunto.sexo, objdifunto.estatura);
 
+            objdifunto.entierro.forEach(objEntierro => {
+              let objEntierroTemp = new Entierro(objEntierro.horaInicio, objEntierro.horaFinal, objEntierro.fecha, objEntierro.lugar, objEntierro.prioridad);
+              
+              obtDifuntoTemp.setEntierro(objEntierroTemp);
+            })
             obtDifuntoTemp.setCedulaCliente(objUsuarioTemp.getCedula());
-
             objUsuarioTemp.setDifuntos(obtDifuntoTemp);
           })
           todosLosUsuarios.push(objUsuarioTemp);
@@ -69,12 +74,12 @@
       return todosLosUsuarios;
     }
 
-    function _actualizarUsuario(pusuarioactulizar){
+    function _actualizarUsuario(pusuarioactulizar) {
       let listaUsuarios = _retornarUsuario(),
-          valido = false;
+        valido = false;
 
-      for(let i =0; i < listaUsuarios.length; i++){
-        if(pusuarioactulizar.getCedula() == listaUsuarios[i].getCedula()){
+      for (let i = 0; i < listaUsuarios.length; i++) {
+        if (pusuarioactulizar.getCedula() == listaUsuarios[i].getCedula()) {
           listaUsuarios[i] = pusuarioactulizar;
           valido = true;
         }
@@ -102,19 +107,83 @@
     function _retornarDifunto(pidusuario) {
       let todosLosUsuarios = _retornarUsuario();
       let todosLosDifuntos = [];
-      
-      for(let i = 0; i < todosLosUsuarios.length; i++){
-        if(pidusuario == todosLosUsuarios[i].getCedula()){
+
+      for (let i = 0; i < todosLosUsuarios.length; i++) {
+        if (pidusuario == todosLosUsuarios[i].getCedula()) {
           todosLosDifuntos = todosLosUsuarios[i].getDifuntos();
         }
       }
       return todosLosDifuntos;
     }
 
-  
+    function _actualizarDifunto(pdifuntoactulizar) {
+      let listaUsuarios = _retornarUsuario(),
+        valido = false;
 
-    function actualizarLocal(listaActualizada){
+      for (let i = 0; i < listaUsuarios.length; i++) {
+        if (pdifuntoactulizar.getCedulaCliente() == listaUsuarios[i].getCedula()) {
+
+          let listaDifuntos = listaUsuarios[i].getDifuntos();
+
+          for (let x = 0; x < listaDifuntos.length; x++) {
+            
+            if(pdifuntoactulizar.getDifuntoID() == listaDifuntos[x].getDifuntoID()){
+              listaDifuntos[x] = pdifuntoactulizar;
+              valido = true;
+            }
+            
+          }
+        }
+      }
+      actualizarLocal(listaUsuarios);
+      return valido;
+    }
+
+    function _agregarEntierro(pdatos) {
+
+      let todosLosUsuarios = _retornarUsuario();
+      let registroExitoso = false;
+
+      for (let i = 0; i < todosLosUsuarios.length; i++) {
+        if (pdatos[0].getCedulaCliente() === todosLosUsuarios[i].getCedula()) {
+
+          let listaDifuntos = todosLosUsuarios[i].getDifuntos();
+
+          for (let x = 0; x < listaDifuntos.length; x++) {
+            if (pdatos[0].getDifuntoID() == listaDifuntos[x].getDifuntoID()) {
+              listaDifuntos[x].setEntierro(pdatos[1]);
+              registroExitoso = true;
+            }
+          }
+        }
+      }
+      actualizarLocal(todosLosUsuarios);
+      return registroExitoso;
+    }
+
+    function _retornarEntierro(pdatos) {
+      let todosLosUsuarios = _retornarUsuario();
+      let todosLosEntierros = [];
+
+      for (let i = 0; i < todosLosUsuarios.length; i++) {
+        if (pdatos[0] == todosLosUsuarios[i].getCedula()) {
+          let todosLosDifuntos = _retornarDifunto(todosLosUsuarios[i].getCedula());
+
+          for (let x = 0; x < todosLosDifuntos.length; x++) {
+            if (pdatos[1] == todosLosDifuntos[x].getDifuntoID()) {
+              todosLosEntierros = todosLosDifuntos[x].getEntierro();
+            }
+
+          }
+        }
+      }
+      return todosLosEntierros;
+    }
+
+    
+
+    function actualizarLocal(listaActualizada) {
       localStorage.setItem('listaUsuariosLS', JSON.stringify(listaActualizada));
     }
-  }   
+  }
 })(); 

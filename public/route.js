@@ -152,6 +152,24 @@
         },
         controller: 'controladorRegistroEntierro',
         controllerAs: 'vm'
+      })
+
+      .state('listarEntierros', {
+        url: '/listarEntierros',
+        templateUrl: './components/entierros/listarEntierros/listarEntierros.view.html',
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/entierros/listarEntierros/listarEntierros.controller.js')
+          }]
+        },
+        data: {
+          pageTitle: 'Lista de entierros | Funeraria'
+        },
+        params: {
+          objDifunto: ''
+        },
+        controller: 'controladorListaEntierros',
+        controllerAs: 'vm'
       });
 
     // .state('', {

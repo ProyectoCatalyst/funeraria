@@ -13,6 +13,11 @@
                 <div class="col-md-4">
 
                     <div class="form-group">
+                        <label for="#txtApodo">Identificador para el muerto(código numerico):</label>
+                        <input type="number" class="form-control" id="txtApodo" ng-model="vm.difuntoNuevo.difuntoID">
+                        <small class="form-text text-danger">* Campo requerido</small>
+                    </div>
+                    <div class="form-group">
                         <label for="#txtApodo">Apodo del difunto: </label>
                         <input type="text" class="form-control" id="txtApodo" ng-model="vm.difuntoNuevo.apodo">
                         <small class="form-text text-danger">* Campo requerido</small>

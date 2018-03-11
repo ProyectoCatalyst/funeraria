@@ -45,19 +45,32 @@ class Usuario {
 }
 
 class Difunto {
-  constructor(pedad, papodo, psexo, pestatura){
-      this.edad = pedad;
-      this.apodo = papodo;
-      this.sexo = psexo;
-      this.estatura = pestatura;
+  constructor(pdifuntoid, pedad, papodo, psexo, pestatura) {
+    this.difuntoID = pdifuntoid;
+    this.edad = pedad;
+    this.apodo = papodo;
+    this.sexo = psexo;
+    this.estatura = pestatura;
+    this.entierro = [];
   }
 
-  setEntierro(pnuevoEntierro) {
-    this.entierro = pnuevoEntierro;
+  getDifuntoID() {
+    return this.difuntoID;
   }
 
   setCedulaCliente(pCedulaCliente) {
     this.clienteID = pCedulaCliente;
+  }
+
+  getCedulaCliente() {
+    return this.clienteID;
+  }
+
+  setEntierro(pnuevoEntierro) {
+    this.entierro.push(pnuevoEntierro);
+  }
+  getEntierro() {
+    return this.entierro;
   }
 }
 

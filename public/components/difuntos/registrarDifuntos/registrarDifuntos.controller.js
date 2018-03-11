@@ -26,7 +26,7 @@
 
             let objUsuarioTemp = new Usuario(objUsuarioSinFormato.cedula, objUsuarioSinFormato.nombre, objUsuarioSinFormato.primerApellido, objUsuarioSinFormato.segundoApellido, objUsuarioSinFormato.sexo, objUsuarioSinFormato.fecha, objUsuarioSinFormato.provincia, objUsuarioSinFormato.canton, objUsuarioSinFormato.distrito, objUsuarioSinFormato.nombreUsuario, objUsuarioSinFormato.correo, objUsuarioSinFormato.contrasenna);
 
-            let objDifunto = new Difunto(pdifuntoNuevo.edad, pdifuntoNuevo.apodo, pdifuntoNuevo.sexo, pdifuntoNuevo.estatura);
+            let objDifunto = new Difunto(pdifuntoNuevo.difuntoID, pdifuntoNuevo.edad, pdifuntoNuevo.apodo, pdifuntoNuevo.sexo, pdifuntoNuevo.estatura);
 
             objDifunto.setCedulaCliente(objUsuarioTemp.getCedula());
 

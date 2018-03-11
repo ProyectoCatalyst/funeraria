@@ -24,6 +24,9 @@
         vm.agregarEntierro = (pdifunto) => {
             $state.go('registrarEntierros', { objDifunto: JSON.stringify(pdifunto) });
         }
+        vm.listarEntierro = (pdifunto) => {
+            $state.go('listarEntierros', { objDifunto: JSON.stringify(pdifunto) });
+        }
         vm.editarDifunto = (pdifunto) => {
             $state.go('editarDifuntos', { objDifunto: JSON.stringify(pdifunto) });
         }

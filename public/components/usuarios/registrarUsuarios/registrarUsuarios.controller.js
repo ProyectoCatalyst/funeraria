@@ -36,7 +36,6 @@
     }
 
     vm.rellenarDistrito = (pidCanton) => {
-      console.log(pidCanton);
       vm.distritos = $http({
         method: 'GET',
         url: './sources/data/distritos.json'
