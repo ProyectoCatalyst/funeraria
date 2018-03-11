@@ -1,31 +1,39 @@
-<main class="container">
+<main class="container-fluid">
     <section class="row">
 
-        <div class="col-md-12">
+        <div class="col-md-12 mt-5">
 
             <h1 class="text-center">Difuntos de {{vm.usuarioActivo}} </h1>
             <table class="table mt-5">
                 <thead class="thead-dark">
                     <tr>
+                        <th scope="col">Cédula del cliente</th>
+                        <th scope="col">Identificador del difunto</th>
                         <th scope="col">Edad</th>
                         <th scope="col">Apodo</th>
                         <th scope="col">Sexo</th>
                         <th scope="col">Estatura</th>
                         <th scope="col">Agregar entierro</th>
-                        <th scope="col">Modificar difunto</th>
+                        <th scope="col">Mostrar entierro</th>
+                        <th scope="col">Editar difunto</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="difunto in vm.listarDifuntos">
+                        <td>{{difunto.clienteID}}</td>
+                        <td>{{difunto.difuntoID}}</td>
                         <td>{{difunto.edad}}</td>
                         <td>{{difunto.apodo}}</td>
                         <td>{{difunto.sexo}}</td>
                         <td>{{difunto.estatura}}</td>
                         <td>
-                            <button class="btn btn-primary" type="button" ng-click="vm.agregarEntierro(usuario)">Agregar entierro</button>
+                            <button class="btn btn-primary" type="button" ng-click="vm.agregarEntierro(difunto)">Agregar entierro</button>
                         </td>
                         <td>
-                            <button class="btn btn-danger" type="button" ng-click="vm.editarDifuntp(usuario)">Modificar difunto</button>
+                            <button class="btn btn-success" type="button" ng-click="vm.listarEntierro(difunto)">Mostrar entierro</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" type="button" ng-click="vm.editarDifunto(difunto)">Modificar difunto</button>
                         </td>
                     </tr>
                 </tbody>

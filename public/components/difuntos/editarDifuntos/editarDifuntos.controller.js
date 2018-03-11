@@ -1,56 +1,71 @@
 (() => {
     'use strict';
-
     angular
-    .module('funeraria')
-    .controller('controladorEditarDifuntos', controladorEditarDifuntos)
+        .module('funeraria')
+        .controller('controladorEditarDifuntos', controladorEditarDifuntos)
 
-    controladorEditarDifuntos.$inject = ['$stateParams', '$state', 'servicioDifunto'];
+    controladorEditarDifuntos.$inject = ['$stateParams', '$state', '$http', 'servicioUsuarios'];
 
-    function controladorEditarDifuntos($stateParams, $state, servicioDifunto){
+    function controladorEditarDifuntos($stateParams, $state, $http, servicioUsuarios) {
         let vm = this;
 
-        let difuntoOriginalSinFormato = JSON.parse($stateParams.objDifuntoEditar);
-
-        let objDifuntoOriginalTemp = new Difunto (difuntoOriginalSinFormato.edad, difuntoOriginalSinFormato.apodo, difuntoOriginalSinFormato.estatura);
-
-
-        // ---------  tomar objetos previos y mostrarlo en los campos de texto ----------
-        vm.difuntoEditar = {};
-        vm.difuntoEditar.edad = objDifuntoOriginalTemp.edad;
-        vm.difuntoEditar.apodo = objDifuntoOriginalTemp.apodo;
-        vm.difuntoEditar.estatura = objDifuntoOriginalTemp.estatura;
-        // ---------  tomar objetos previos y mostrarlo en los campos de texto ----------
-
-
-        vm.editarDifunto = (pnuevoDifunto) => {
-            let objNuevoDifunto = new Difunto (pnuevoDifunto.edad, pnuevoDifunto.apodo, pnuevoDifunto.estatura),
-                aDatos = [objDifuntoOriginalTemp, objNuevoDifunto];
-
-
-            verificarDifuntoEditado(aDatos);
-
-            swal('¡Gracias!', 'Hemos editado la información', 'success');
-
-            $state.go('listarDifuntos');
-
+        if (!$stateParams.objDifunto) {
+            $state.go('listarUsuarios');
         }
 
-        vm.regresar = () => {
-            $state.go('listarDifuntos')
-        }
+        let objDifuntoSinFormato = JSON.parse($stateParams.objDifunto);
 
+        let objDifuntoFormato = new Difunto(objDifuntoSinFormato.difuntoID, objDifuntoSinFormato.edad, objDifuntoSinFormato.apodo, objDifuntoSinFormato.sexo, objDifuntoSinFormato.estatura);
 
-        function verificarDifuntoEditado(aDatos){
-            let listaDifuntosOriginal = servicioDifunto.retornarDifuntos();
+        objDifuntoFormato.setCedulaCliente(objDifuntoSinFormato.clienteID);
 
-            for (let i=0; i<listaDifuntosOriginal.length; i++){
-                if(listaDifuntosOriginal[i].retornarApodo() == aDatos[0].apodo){
-                    listaDifuntosOriginal[i] = aDatos[1];
+        vm.difuntoActivo = objDifuntoFormato.apodo;
+
+        vm.difuntoEditar = {}
+        vm.difuntoEditar.difuntoID = objDifuntoFormato.difuntoID;
+        vm.difuntoEditar.clienteID = objDifuntoFormato.clienteID;
+        vm.difuntoEditar.apodo = objDifuntoFormato.apodo;
+        vm.difuntoEditar.edad = objDifuntoFormato.edad;
+        vm.difuntoEditar.sexo = objDifuntoFormato.sexo;
+        vm.difuntoEditar.estatura = objDifuntoFormato.estatura;
+
+        vm.editarDifuntos = (pdifunto) => {
+
+            let todosLosDifuntos = servicioUsuarios.retornarDifunto(objDifuntoFormato.clienteID);
+
+            let objDifuntoEditado = new Difunto(pdifunto.difuntoID, pdifunto.edad, pdifunto.apodo, pdifunto.sexo, pdifunto.estatura);
+
+            for (let i = 0; i < todosLosDifuntos.length; i++) {
+
+                if (pdifunto.difuntoID == todosLosDifuntos[i].getDifuntoID()) {
+
+                    let objDifuntoLS = todosLosDifuntos[i];
+
+                    objDifuntoLS.getEntierro().forEach(objEntierroTemp => {
+                        let objEntierro = new Entierro(objEntierroTemp.horaInicio, objEntierroTemp.horaFinal, objEntierroTemp.fecha, objEntierroTemp.lugar, objEntierroTemp.prioridad);
+
+                        objDifuntoEditado.setEntierro(objEntierro);
+                        objDifuntoEditado.setCedulaCliente(objDifuntoFormato.clienteID);
+                    });
                 }
             }
 
-            servicioDifunto.actualizarDifunto(listaDifuntosOriginal); // envio lista actualizada
+            let actualizarCorrecto = servicioUsuarios.actualizarDifunto(objDifuntoEditado);
+
+            if (actualizarCorrecto == true) {
+                swal({
+                    title: "Actualización exitosa",
+                    text: "Difunto actualizado correctamente",
+                    icon: "success",
+                    button: "Aceptar"
+                });
+
+                $state.go('listarDifuntos');
+            }
+        }
+
+        vm.regresar = () => {
+            $state.go('listarDifuntos');
         }
     }
-})()
+})();

@@ -19,6 +19,21 @@
         }
       })
 
+      .state('iniciarSesión', {
+        url: '/iniciarSesion',
+        templateUrl: './components/login/login.view.html',
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/login/login.controller.js')
+          }]
+        },
+        data: {
+          pageTitle: 'Inicio de sesión | Funeraria'
+        },
+        controller: 'controladorInicioSesion',
+        controllerAs: 'vm'
+      })
+
       .state('registroUsuarios', {
         url: '/registrarUsuario',
         templateUrl: './components/usuarios/registrarUsuarios/registrarUsuarios.view.html',
@@ -66,7 +81,7 @@
         controller: 'controladorEditarUsuario',
         controllerAs: 'vm'
       })
-      
+
       .state('registroDifuntos', {
         url: '/registroDifuntos',
         templateUrl: './components/difuntos/registrarDifuntos/registrarDifuntos.view.html',
@@ -75,7 +90,7 @@
             return $ocLazyLoad.load('./components/difuntos/registrarDifuntos/registrarDifuntos.controller.js')
           }]
         },
-        data:{
+        data: {
           pageTitle: 'Registrar difuntos | Funeraria'
         },
         params: {
@@ -84,7 +99,7 @@
         controller: 'controladorRegistrarDifunto',
         controllerAs: 'vm'
       })
-      
+
       .state('listarDifuntos', {
         url: '/listarDifuntos',
         templateUrl: './components/difuntos/listarDifuntos/listarDifuntos.view.html',
@@ -93,16 +108,16 @@
             return $ocLazyLoad.load('./components/difuntos/listarDifuntos/listarDifuntos.controller.js')
           }]
         },
-        data:{
+        data: {
           pageTitle: 'Lista difuntos | Funeraria'
         },
         params: {
           objUsuario: ''
-        }, 
+        },
         controller: 'controladorListaDifuntos',
         controllerAs: 'vm'
       })
-      
+
       .state('editarDifuntos', {
         url: '/editarDifuntos',
         templateUrl: './components/difuntos/editarDifuntos/editarDifuntos.view.html',
@@ -111,10 +126,10 @@
             return $ocLazyLoad.load('./components/difuntos/editarDifuntos/editarDifuntos.controller.js')
           }]
         },
-        params:{
-          objDifuntoEditar : ''
-        }, 
-        data:{
+        params: {
+          objDifunto: ''
+        },
+        data: {
           pageTitle: 'Editar difunto | Funeraria'
         },
         controller: 'controladorEditarDifuntos',
@@ -249,7 +264,42 @@
       },
       controller: 'controladorEditarFiestas',
       controllerAs: 'vm'
-    });
+    })
+      .state('registrarEntierros', {
+        url: '/registrarEntierros',
+        templateUrl: './components/entierros/registrarEntierros/registrarEntierros.view.html',
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/entierros/registrarEntierros/registrarEntierros.controller.js')
+          }]
+        },
+        data: {
+          pageTitle: 'Registro de Entierros | Funeraria'
+        },
+        params: {
+          objDifunto: ''
+        },
+        controller: 'controladorRegistroEntierro',
+        controllerAs: 'vm'
+      })
+
+      .state('listarEntierros', {
+        url: '/listarEntierros',
+        templateUrl: './components/entierros/listarEntierros/listarEntierros.view.html',
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/entierros/listarEntierros/listarEntierros.controller.js')
+          }]
+        },
+        data: {
+          pageTitle: 'Lista de entierros | Funeraria'
+        },
+        params: {
+          objDifunto: ''
+        },
+        controller: 'controladorListaEntierros',
+        controllerAs: 'vm'
+      });
 
     // .state('', {
     //   url: '',

@@ -1,0 +1,46 @@
+<main class="container-fluid">
+    <section class="row">
+
+        <div class="col-md-12 mt-5">
+
+            <h1 class="text-center">Entierro de {{vm.difunto}}</h1>
+            <table class="table mt-5">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Lugar</th>
+                        <th scope="col">Hora de inicio:</th>
+                        <th scope="col">Hora de finalización</th>
+                        <th scope="col">Prioridad</th>
+                        <th scope="col">Agregar fiesta</th>
+                        <th scope="col">Agregar retoques</th>
+                        <th scope="col">Editar entierro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="entierro in vm.listarEntierros">
+                        <td>{{entierro.fecha | date:'dd-MM-yyyy'}}</td>
+                        <td>{{entierro.lugar}}</td>
+                        <td>{{entierro.horaInicio | date:'HH:mm a'}}</td>
+                        <td>{{entierro.horaFinal | date:'HH:mm a'}}</td>
+                        <td>{{entierro.prioridad}}</td>
+                        <td>
+                            <button class="btn btn-primary" type="button" ng-click="vm.agregarFiesta(entierro)">Agregar fiesta</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-success" type="button" ng-click="vm.agregarRetoques(entierro)">Agregar retoques</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" type="button" ng-click="vm.editarEntierro(entierro)">Editar Entierro</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-md-12">
+            <button type="button" class="btn btn-danger" ng-click="vm.regresar()">Regresar</button>
+        </div>
+
+    </section>
+</main>
