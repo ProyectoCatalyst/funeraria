@@ -25,13 +25,13 @@
                         <td>{{entierro.horaFinal | date:'HH:mm a'}}</td>
                         <td>{{entierro.prioridad}}</td>
                         <td>
-                            <button class="btn btn-primary" type="button" ng-click="vm.agregarEntierro(difunto)">Agregar fiesta</button>
+                            <button class="btn btn-primary" type="button" ng-click="vm.agregarFiesta(entierro)">Agregar fiesta</button>
                         </td>
                         <td>
-                            <button class="btn btn-success" type="button" ng-click="vm.listarEntierro(difunto)">Agregar retoques</button>
+                            <button class="btn btn-success" type="button" ng-click="vm.agregarRetoques(entierro)">Agregar retoques</button>
                         </td>
                         <td>
-                            <button class="btn btn-danger" type="button" ng-click="vm.editarDifunto(difunto)">Editar Entierro</button>
+                            <button class="btn btn-danger" type="button" ng-click="vm.editarEntierro(entierro)">Editar Entierro</button>
                         </td>
                     </tr>
                 </tbody>

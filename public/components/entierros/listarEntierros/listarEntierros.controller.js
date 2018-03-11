@@ -14,19 +14,24 @@
     }
 
     let objDifuntoSinFormato = JSON.parse($stateParams.objDifunto);
-    let objDifuntoFormato = new Difunto(objDifuntoSinFormato.difuntoID, objDifuntoSinFormato.edad ,objDifuntoSinFormato.apodo, objDifuntoSinFormato.sexo, objDifuntoSinFormato.estatura);
+    let objDifuntoFormato = new Difunto(objDifuntoSinFormato.difuntoID, objDifuntoSinFormato.edad, objDifuntoSinFormato.apodo, objDifuntoSinFormato.sexo, objDifuntoSinFormato.estatura);
 
     vm.difunto = objDifuntoFormato.apodo;
-    
+
     let datos = [objDifuntoSinFormato.clienteID, objDifuntoFormato.getDifuntoID()];
     vm.listarEntierros = servicioUsuarios.retornarEntierro(datos);
 
-    // vm.editarDifunto = (pdifunto) => {
-    //   $state.go('editarDifuntos', { objDifunto: JSON.stringify(pdifunto) });
-    // }
-    vm.regresar = () => {
+    vm.agregarFiesta = (pentierro) => {
+      $state.go('registrarFiesta', { objEntierro: JSON.stringify(pentierro) });
+    }
+    vm.agregarRetoques = (pentierro) => {
+      $state.go('agregarRetoques', { objEntierro: JSON.stringify(pentierro) });
+    }
+    vm.editarEntierro = (pentierro) => {
+      $state.go('editarEntierro', { objEntierro: JSON.stringify(pentierro) });
+    }
+    vm.editarEntierro = () => {
       $state.go('listarDifuntos');
     }
-
   }
 })();
