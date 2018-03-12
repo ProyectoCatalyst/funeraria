@@ -18,7 +18,7 @@
       if (inicioCorrecto == true){
         swal({
           title: "Inicio exitoso",
-          text: "",
+          text: "Bienvenido",
           icon: "success",
           button: "Aceptar"
         });
