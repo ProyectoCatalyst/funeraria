@@ -22,6 +22,7 @@
           icon: "success",
           button: "Aceptar"
         });
+        $state.go('listarUsuarios');
       }else{
         swal({
           title: "Revise los datos",

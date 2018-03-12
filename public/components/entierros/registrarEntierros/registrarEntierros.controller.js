@@ -18,7 +18,7 @@
     vm.nuevoEntierro = {};
     vm.registrarEntierro = (pnuevoEntierro) => {
 
-      let objEntierroTem = new Entierro(pnuevoEntierro.entierroID, pnuevoEntierro.horaInicio, pnuevoEntierro.fecha, pnuevoEntierro.horaFin, pnuevoEntierro.lugar, pnuevoEntierro.prioridad);
+      let objEntierroTem = new Entierro(pnuevoEntierro.entierroID, pnuevoEntierro.horaInicio, pnuevoEntierro.fecha, pnuevoEntierro.horaFinal, pnuevoEntierro.lugar, pnuevoEntierro.prioridad);
 
       let objNuevoDifunto = new Difunto(objsinFormatoDifunto.difuntoID, objsinFormatoDifunto.edad, objsinFormatoDifunto.apodo, objsinFormatoDifunto.sexo, objsinFormatoDifunto.estatura);
 

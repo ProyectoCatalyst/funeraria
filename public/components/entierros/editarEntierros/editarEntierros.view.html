@@ -4,7 +4,7 @@
 
   <section class="row">
 
-    <div class="col-md-4 mt-5">
+    <div class="col-md-4 my-5">
 
       <h1 class="text-center">Editar entierro</h1>
 
@@ -13,21 +13,25 @@
         <div class="form-group">
           <label for="txtCodigoEntierro">Código del entierro:</label>
           <input type="number" class="form-control" id="txtCodigoEntierro" ng-model="vm.entierroEditado.entierroID" disabled>
+          <small class="form-text text-danger">* Campo requerido</small>
         </div>
 
         <div class="form-group">
           <label for="timeHoraInicio">Hora de Comienzo:</label>
           <input type="time" class="form-control" id="timeHoraInicio" ng-model="vm.entierroEditado.horaInicio">
+          <small class="form-text text-danger">* Campo requerido</small>
         </div>
 
         <div class="form-group">
           <label for="timeHoraFin">Hora de finalización:</label>
           <input type="time" class="form-control" id="timeHoraFin" ng-model="vm.entierroEditado.horaFinal">
+          <small class="form-text text-danger">* Campo requerido</small>
         </div>
 
         <div class="form-group">
           <label for="txtFecha">Fecha</label>
           <input type="date" class="form-control" id="txtFecha" ng-model="vm.entierroEditado.fecha">
+          <small class="form-text text-danger">* Campo requerido</small>
         </div>
 
         <div class="form-group">
@@ -39,6 +43,7 @@
             <option value="Cementerio">Cementerio</option>
             <option value="Basurero">Basurero</option>
           </select>
+          <small class="form-text text-danger">* Campo requerido</small>
         </div>
 
         <div class="form-group">
@@ -50,10 +55,13 @@
             <option value="Urgente">Urgente</option>
             <option value="Inmediato">Inmediato</option>
           </select>
+          <small class="form-text text-danger">* Campo requerido</small>
         </div>
 
-        <button type="submit" class="btn btn-primary">Editar entierro</button>
-        <button type="button" class="btn btn-danger" ng-click="vm.regresar()">Regresar</button>
+        <div class="mb-5">
+          <button type="submit" class="btn btn-info">Editar entierro</button>
+        <button type="button" class="btn btn-secondary" ng-click="vm.regresar()">Regresar</button>
+        </div>
 
       </form>
 
