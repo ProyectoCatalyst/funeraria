@@ -9,6 +9,10 @@ controladorRegistrarFiesta.$inject = ['$state', '$stateParams', 'servicioFiestas
 function controladorRegistrarFiesta($state, $stateParams, servicioFiestas){
     let vm = this;
 
+    let objDifuntoSinFormato = JSON.parse($stateParams.objDifunto);
+
+    console.log(objDifuntoSinFormato);
+
     vm.registrarFiesta = (pfiestaNueva) => {
         pfiestaNueva.costoTotal = 0; // crear un costo generico
 
@@ -39,11 +43,14 @@ function controladorRegistrarFiesta($state, $stateParams, servicioFiestas){
         let fiestasLS = servicioFiestas.retornarFiestas(),
             existente = false;
 
-        for(let i=0; i<fiestasLS.length; i++){
-            if(fiestasLS[i].getFecha() == pobjfiestaNueva.fecha){
-                existente = true;
-            }
-        }
+        // for(let i=0; i<fiestasLS.length; i++){
+        //     let fechaAgregar = pobjfiestaNueva.fecha("YYYY-MM-DDTHH:MM:SSZ");
+
+        //         let fechaLS_formatofecha
+        //     if(fiestasLS[i].getFecha() == pobjfiestaNueva.fecha){
+        //         existente = true;
+        //     }
+        // }
         return existente
     }
 }

@@ -19,20 +19,20 @@
         }
       })
 
-      .state('iniciarSesión', {
-        url: '/iniciarSesion',
-        templateUrl: './components/login/login.view.html',
-        resolve: {
-          load: ['$ocLazyLoad', ($ocLazyLoad) => {
-            return $ocLazyLoad.load('./components/login/login.controller.js')
-          }]
-        },
-        data: {
-          pageTitle: 'Inicio de sesión | Funeraria'
-        },
-        controller: 'controladorInicioSesion',
-        controllerAs: 'vm'
-      })
+      // .state('iniciarSesión', {
+      //   url: '/iniciarSesion',
+      //   templateUrl: './components/login/login.view.html',
+      //   resolve: {
+      //     load: ['$ocLazyLoad', ($ocLazyLoad) => {
+      //       return $ocLazyLoad.load('./components/login/login.controller.js')
+      //     }]
+      //   },
+      //   data: {
+      //     pageTitle: 'Inicio de sesión | Funeraria'
+      //   },
+      //   controller: 'controladorInicioSesion',
+      //   controllerAs: 'vm'
+      // })
 
       .state('registroUsuarios', {
         url: '/registrarUsuario',
@@ -223,6 +223,9 @@
           return $ocLazyLoad.load('./components/fiestas/listarFiestas/listarFiestas.controller.js')
         }]
       },
+      params: {
+        objDifunto: ''
+      },
       data:{
         pageTitle: 'Lista fiestas | Funeraria'
       },
@@ -299,7 +302,76 @@
         },
         controller: 'controladorListaEntierros',
         controllerAs: 'vm'
-      });
+      })
+      
+      .state('registrarRetoques', {
+        url: '/registrarRetoques',
+        templateUrl: './components/retoques/registarRetoques/registarRetoques.view.html',
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/retoques/registarRetoques/registarRetoques.controller.js')
+          }]
+        },
+        data:{
+          pageTitle: 'Registrar retoques | Funeraria'
+        },
+        controller: 'controladorRegistrarRetoques',
+        controllerAs: 'vm'
+      })
+      
+      .state('listarRetoques', {
+        url: '/listarRetoques',
+        templateUrl: './components/retoques/listarRetoques/listarRetoques.view.html',
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/retoques/listarRetoques/llistarRetoques.controller.js')
+          }]
+        },
+        params: {
+          objDifunto: ''
+        },  
+        data:{
+          pageTitle: 'Listar retoques | Funeraria'
+        },
+        controller: 'controladorListarRetoques',
+        controllerAs: 'vm'
+      })
+      
+      .state('editarRetoques', {
+        url: '/editarRetoques',
+        templateUrl: './components/retoques/editarRetoques/editarRetoques.view.html',
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/retoques/editarRetoques/editarRetoques.controller.js')
+          }]
+        },
+        params: {
+          objRetoqueMod: ''
+        },
+        data:{
+          pageTitle: 'Editar retoques | Funeraria'
+        },
+        controller: 'controladorEditarRetoques',
+        controllerAs: 'vm'
+      })
+      
+    .state('agregarRetoques', {
+      url: '/agregarRetoques',
+      templateUrl: './components/retoques/agregarRetoques/agregarRetoques.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/retoques/agregarRetoques/agregarRetoques.controller.js')
+        }]
+      },
+      params: {
+        objDifunto: ''
+      },  
+      data:{
+        pageTitle: 'lorem | lorem'
+      },
+      controller: 'controladorAgregarRetoques',
+      controllerAs: 'vm'
+    });
 
     // .state('', {
     //   url: '',
