@@ -371,8 +371,25 @@
       },
       controller: 'controladorAgregarRetoques',
       controllerAs: 'vm'
-    });
+    })
 
+    .state('editarEntierro', {
+      url: '/editarEntierro',
+      templateUrl: './components/entierros/editarEntierros/editarEntierros.view.html',
+      resolve: {
+        load: ['$ocLazyLoad', ($ocLazyLoad) => {
+          return $ocLazyLoad.load('./components/entierros/editarEntierros/editarEntierros.controller.js')
+        }]
+      },
+      params: {
+        objEntierro: ''
+      },
+      data: {
+        pageTitle: 'Editar entierro | Funeraria'
+      },
+      controller: 'controladorEditarEntierro',
+      controllerAs: 'vm'
+    });
     // .state('', {
     //   url: '',
     //   templateUrl: '',

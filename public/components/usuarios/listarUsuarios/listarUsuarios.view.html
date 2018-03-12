@@ -1,11 +1,12 @@
-<main class="cotainer-fluid">
+<div ng-include="'./components/includes/_header.html'"></div>
+<main class="container-fluid">
   <section class="row">
 
-    <div class="col-md-12 mt-5">
+    <div class="col-md-12 my-5">
 
-      <h1 class="text-center">Listar Usuarios</h1>
-      <table class="table mt-5">
-          <thead class="thead-dark">
+      <h1 class="text-center">Lista de usuarios</h1>
+      <table class="table text-center mt-5">
+          <thead class="thead-dark btn-dark-fn">
             <tr>
               <!-- <th></th> -->
               <th scope="col">Cédula</th>
@@ -15,13 +16,13 @@
               <th scope="col">Sexo</th>
               <!-- <th scope="col">Provincia</th>
               <th scope="col">Cantón</th> -->
-              <th scope="col">Distrito</th>
-              <th scope="col">Usuario</th>
-              <th scope="col">Correo</th>
+              <th scope="col">Residencia</th>
+              <!-- <th scope="col">Usuario</th> -->
+              <th scope="col">Correo electrónico</th>
               <!-- <th scope="col">Contraseña</th>
               <th scope="col">Fecha</th> -->
               <th scope="col">Agregar difunto</th>
-              <th scope="col">Mostrar difunto</th>
+              <th scope="col">Mostrar difuntos</th>
               <th scope="col">Editar usuario</th>
             </tr>
           </thead>
@@ -36,18 +37,18 @@
               <!-- <td>{{usuario.provincia.name}}</td>
               <td>{{usuario.canton.name}}</td> -->
               <td>{{usuario.distrito.name}}</td>
-              <td>{{usuario.nombreUsuario}}</td>
+              <!-- <td>{{usuario.nombreUsuario}}</td> -->
               <td>{{usuario.correo}}</td>
               <!-- <td>{{usuario.contrasenna}}</td> -->
               <!-- <td>{{usuario.fecha | date:'dd-MM-yyyy'}}</td> -->
               <td>
-                <button class="btn btn-primary" type="button" ng-click="vm.agregarDifunto(usuario)">Agregar Difunto</button>
+                <button class="btn btn-info" type="button" ng-click="vm.agregarDifunto(usuario)">Agregar Difunto</button>
               </td>
               <td>
-                <button class="btn btn-success" type="button" ng-click="vm.listarDifunto(usuario)">Mostar difuntos</button>
+                <button class="btn btn-info" type="button" ng-click="vm.listarDifunto(usuario)">Mostar difuntos</button>
               </td>
               <td>
-                <button class="btn btn-danger" type="button" ng-click="vm.editarUsuario(usuario)">Editar usuario</button>
+                <button class="btn btn-info" type="button" ng-click="vm.editarUsuario(usuario)">Editar usuario</button>
               </td>
             </tr>
           </tbody>
@@ -57,3 +58,4 @@
     
   </section>
 </main>
+<div ng-include="'./components/includes/_footer.html'"></div>

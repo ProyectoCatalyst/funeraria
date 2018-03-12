@@ -4,29 +4,38 @@
 
   <section class="row">
 
-    <div class="col-md-4 mt-5">
+    <div class="col-md-6 my-5">
 
       <h1 class="text-center">Registrar entierro</h1>
 
       <form ng-submit="vm.registrarEntierro(vm.nuevoEntierro)">
 
         <div class="form-group">
+          <label for="txtCodigoEntierro">Código del entierro:</label>
+          <input type="number" class="form-control" id="txtCodigoEntierro" ng-model="vm.nuevoEntierro.entierroID">
+          <small class="form-text text-danger">* Campo requerido</small>          
+        </div>
+
+        <div class="form-group">
           <label for="timeHoraInicio">Hora de Comienzo:</label>
           <input type="time" class="form-control" id="timeHoraInicio" ng-model="vm.nuevoEntierro.horaInicio">
+          <small class="form-text text-danger">* Campo requerido</small>          
         </div>
 
         <div class="form-group">
           <label for="timeHoraFin">Hora de finalización:</label>
-          <input type="time" class="form-control" id="timeHoraFin" ng-model="vm.nuevoEntierro.horaFin">
+          <input type="time" class="form-control" id="timeHoraFin" ng-model="vm.nuevoEntierro.horaFinal">
+          <small class="form-text text-danger">* Campo requerido</small>          
         </div>
 
         <div class="form-group">
-          <label for="txtFecha">Fecha</label>
+          <label for="txtFecha">Fecha:</label>
           <input type="date" class="form-control" id="txtFecha" ng-model="vm.nuevoEntierro.fecha">
+          <small class="form-text text-danger">* Campo requerido</small>          
         </div>
 
         <div class="form-group">
-          <label for="sltEntierro">Seleccione lugar de preferencia</label>
+          <label for="sltEntierro">Seleccione lugar del entierro:</label>
           <select class="form-control" id="sltEntierro" ng-model="vm.nuevoEntierro.lugar">
             <option value="">Seleccione una opción</option>
             <option value="Cripta Subterránea">Cripta Subterránea</option>
@@ -34,10 +43,11 @@
             <option value="Cementerio">Cementerio</option>
             <option value="Basurero">Basurero</option>
           </select>
+          <small class="form-text text-danger">* Campo requerido</small>          
         </div>
 
         <div class="form-group">
-          <label for="sltPrioridad">Seleccione nivel de prioridad</label>
+          <label for="sltPrioridad">Seleccione nivel de prioridad del entierro:</label>
           <select class="form-control" id="sltPrioridad" ng-model="vm.nuevoEntierro.prioridad">
             <option value="">Seleccione un tipo de entierro</option>
             <option value="Poco urgente">Poco urgente</option>
@@ -45,10 +55,14 @@
             <option value="Urgente">Urgente</option>
             <option value="Inmediato">Inmediato</option>
           </select>
+          <small class="form-text text-danger">* Campo requerido</small>
+          
         </div>
 
-        <button type="submit" class="btn btn-primary">Registrar Entierro</button>
-        <button type="button" class="btn btn-danger" ng-click="vm.regresar()">Regresar</button>
+        <div class="mb-5">
+          <button type="submit" class="btn btn-info">Registrar Entierro</button>
+        <button type="button" class="btn btn-secondary" ng-click="vm.regresar()">Regresar</button>
+        </div>
 
       </form>
 

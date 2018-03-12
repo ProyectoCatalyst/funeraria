@@ -17,7 +17,7 @@
 
         let objUsuarioTemp = new Usuario(objUsuarioSinFormato.cedula, objUsuarioSinFormato.nombre, objUsuarioSinFormato.primerApellido, objUsuarioSinFormato.segundoApellido, objUsuarioSinFormato.sexo, objUsuarioSinFormato.fecha, objUsuarioSinFormato.provincia, objUsuarioSinFormato.canton, objUsuarioSinFormato.distrito, objUsuarioSinFormato.nombreUsuario, objUsuarioSinFormato.correo, objUsuarioSinFormato.contrasenna);
 
-        vm.usuarioActivo = `${objUsuarioTemp.nombre} ${objUsuarioTemp.primerApellido} ${objUsuarioTemp.segundoApellido}`;
+        vm.usuarioActivo = `${objUsuarioTemp.nombre} ${objUsuarioTemp.primerApellido}`;
 
         vm.listarDifuntos = servicioUsuarios.retornarDifunto(objUsuarioTemp.cedula);
 

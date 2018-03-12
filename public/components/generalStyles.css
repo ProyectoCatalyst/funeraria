@@ -1,0 +1,17 @@
+h1{
+  color: black;
+}
+.bg-dark-fn{
+  background: black!important;
+}
+.btn-dark-fn{
+  background: black!important;
+}
+.bg-dark-fn:hover{
+  background: #353b48;
+}
+footer{
+  background-color: black;
+  height: 40px;
+  color: white;
+}
