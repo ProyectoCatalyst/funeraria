@@ -92,8 +92,12 @@
           objUsuarioLS.getDifuntos().forEach(objTemp => {
             let objTempDifunto = new Difunto(objTemp.difuntoID, objTemp.edad, objTemp.apodo, objTemp.sexo, objTemp.estatura);
 
-            objUsuarioFormato.setDifuntos(objTempDifunto);
+            objTempDifunto.getEntierro().forEach(objTempEntierro =>{
+              let objEntierro = new Entierro(objTempEntierro.entierroID, objTempEntierro.horaInicio, objTempEntierro.horaFinal, objTempEntierro.fecha, objTempEntierro.lugar, objTempEntierro.prioridad);
 
+              objTempDifunto.setEntierro(objEntierro);
+            });
+            objUsuarioFormato.setDifuntos(objTempDifunto);
           });
         }
 
