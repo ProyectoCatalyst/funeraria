@@ -10,6 +10,10 @@
   
       vm.retoques = {}
   
+      vm.inicio = () => {
+        $state.go('listarUsuarios')
+      } 
+      
       vm.listaRetoques = servicioRetoques.getRetoques();
   
       listarRetoques();
