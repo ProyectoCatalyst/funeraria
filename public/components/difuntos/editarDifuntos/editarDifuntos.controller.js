@@ -44,6 +44,7 @@
                     objDifuntoLS.getEntierro().forEach(objEntierroTemp => {
                         let objEntierro = new Entierro(objEntierroTemp.horaInicio, objEntierroTemp.horaFinal, objEntierroTemp.fecha, objEntierroTemp.lugar, objEntierroTemp.prioridad);
 
+                        objEntierro.setCedulaCliente(objDifuntoFormato.clienteID);
                         objDifuntoEditado.setEntierro(objEntierro);
                         objDifuntoEditado.setCedulaCliente(objDifuntoFormato.clienteID);
                     });

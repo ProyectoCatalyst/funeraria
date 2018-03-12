@@ -11,6 +11,11 @@
       <form ng-submit="vm.registrarEntierro(vm.nuevoEntierro)">
 
         <div class="form-group">
+          <label for="txtCodigoEntierro">Código del entierro:</label>
+          <input type="number" class="form-control" id="txtCodigoEntierro" ng-model="vm.nuevoEntierro.entierroID">
+        </div>
+
+        <div class="form-group">
           <label for="timeHoraInicio">Hora de Comienzo:</label>
           <input type="time" class="form-control" id="timeHoraInicio" ng-model="vm.nuevoEntierro.horaInicio">
         </div>

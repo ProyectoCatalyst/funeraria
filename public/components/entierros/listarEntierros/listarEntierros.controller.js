@@ -30,7 +30,7 @@
     vm.editarEntierro = (pentierro) => {
       $state.go('editarEntierro', { objEntierro: JSON.stringify(pentierro) });
     }
-    vm.editarEntierro = () => {
+    vm.regresar = () => {
       $state.go('listarDifuntos');
     }
   }

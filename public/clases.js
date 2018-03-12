@@ -75,11 +75,31 @@ class Difunto {
 }
 
 class Entierro {
-  constructor(phoraInicio, phoraFinal, pfecha, plugar, pprioridad) {
+  constructor(pentierroID, phoraInicio, phoraFinal, pfecha, plugar, pprioridad) {
+    this.entierroID = pentierroID;
     this.horaInicio = phoraInicio;
     this.horaFinal = phoraFinal;
     this.fecha = pfecha;
     this.lugar = plugar;
     this.prioridad = pprioridad;
   }
+
+  getEntieroID() {
+    return this.entierroID;
+  }
+  setCedulaCliente(pCedulaCliente) {
+    this.clienteID = pCedulaCliente;
+  }
+
+  getCedulaCliente() {
+    return this.clienteID;
+  }
+
+  setIdDifunto(pdifuntoid){
+    this.idDifunto = pdifuntoid;
+  }
+  getIdDifunto(){
+    return this.idDifunto;
+  }
+  
 }
