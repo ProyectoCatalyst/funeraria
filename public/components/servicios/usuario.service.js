@@ -27,13 +27,11 @@
       actualizarDifunto: _actualizarDifunto,
       agregarEntierro: _agregarEntierro,
       retornarEntierro: _retornarEntierro,
-<<<<<<< HEAD
       agregarRetoques: _agregarRetoques,
       retornarRetoques: _retornarRetoques,
-      eliminarCompra: _eliminarCompra
-=======
+      eliminarCompra: _eliminarCompra,
       actualizarEntierro: _actualizarEntierro
->>>>>>> master
+      
     };
     return publicAPI;
 
