@@ -27,6 +27,7 @@
       actualizarDifunto: _actualizarDifunto,
       agregarEntierro: _agregarEntierro,
       retornarEntierro: _retornarEntierro,
+      actualizarEntierro: _actualizarEntierro,
       agregarRetoques: _agregarRetoques,
       retornarRetoques: _retornarRetoques,
       eliminarCompra: _eliminarCompra
