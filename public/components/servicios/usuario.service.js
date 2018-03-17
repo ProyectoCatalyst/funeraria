@@ -27,7 +27,9 @@
       actualizarDifunto: _actualizarDifunto,
       agregarEntierro: _agregarEntierro,
       retornarEntierro: _retornarEntierro,
-      actualizarEntierro: _actualizarEntierro
+      agregarRetoques: _agregarRetoques,
+      retornarRetoques: _retornarRetoques,
+      eliminarCompra: _eliminarCompra
     };
     return publicAPI;
 
@@ -68,6 +70,13 @@
               objEntierroTemp.setIdDifunto(obtDifuntoTemp.getDifuntoID());
               obtDifuntoTemp.setEntierro(objEntierroTemp);
             })
+
+            objdifunto.retoques.forEach( objRetoques => {
+              let objRetoquesTemp = new Retoque(objRetoques.nombre, objRetoques.precio);        
+              
+              obtDifuntoTemp.setCompra(objRetoquesTemp);
+            })
+
             obtDifuntoTemp.setCedulaCliente(objUsuarioTemp.getCedula());
             objUsuarioTemp.setDifuntos(obtDifuntoTemp);
           })
@@ -181,6 +190,71 @@
         }
       }
       return todosLosEntierros;
+    }
+
+
+    function _agregarRetoques(paDatos){
+        let usuariosLS = _retornarUsuario(),
+            difuntosLS = [];
+
+        for(let i=0; i<usuariosLS.length; i++){
+          difuntosLS = usuariosLS[i].getDifuntos();
+          for(let j=0; j<difuntosLS.length; j++){
+            if(difuntosLS [j].getDifuntoID() == paDatos[0].difuntoID){
+              difuntosLS[j].setCompra(paDatos[1]);
+            }
+          }
+          usuariosLS[i].difuntos = difuntosLS;
+        }
+        actualizarLocal(usuariosLS);
+    };
+
+    function _retornarRetoques(pobjDifuntoTemp){
+      let usuariosLS = _retornarUsuario(),
+          difuntos = [],
+          retoques = [];
+
+      for(let i=0; i<usuariosLS.length; i++){
+          difuntos = usuariosLS[i].getDifuntos();
+
+          for(let j=0; j<difuntos.length; j++){
+            if(difuntos[j].getDifuntoID() == pobjDifuntoTemp.difuntoID){
+              retoques = difuntos[j].getCompra();
+            }
+          }
+          return retoques
+      }
+    }
+
+    function _eliminarCompra(paDatos){
+      let usuariosLS = _retornarUsuario(),
+          difuntos = [],
+          retoques = [],
+          listaNuevaCompras = [];
+
+          for(let i=0; i<usuariosLS.length; i++){
+            difuntos = usuariosLS[i].getDifuntos();
+
+            for(let j=0; j<difuntos.length; j++){
+
+              if(difuntos[j].getDifuntoID() == paDatos[0].difuntoID){
+                retoques = difuntos[i].getCompra();
+                for(let k=0; k<retoques.length; k++){
+                  if(retoques[k].nombre == paDatos[1].nombre){
+
+                  }else{
+                    listaNuevaCompras.push(retoques[k]);
+                  }
+                }
+
+                difuntos[j].retoques = listaNuevaCompras;
+
+              }
+            }
+            usuariosLS [i].difuntos = difuntos;
+          }
+          console.log(usuariosLS)
+          actualizarLocal(usuariosLS)
     }
 
     function _actualizarEntierro(pentierroactualizar) {

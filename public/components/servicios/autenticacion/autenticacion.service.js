@@ -22,7 +22,7 @@
 
       for(let i = 0; i<allUser.length; i++){
         if(allUser[i].getCorreo() == credentials.correo && allUser[i].getContrasenna() == credentials.contrasenna){
-          sessionService.create(allUser[i].getCedula());
+          sessionService.create(allUser[i].getCorreo());
           incioExitoso = true;
         }
       }

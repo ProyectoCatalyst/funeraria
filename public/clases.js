@@ -52,6 +52,7 @@ class Difunto {
     this.sexo = psexo;
     this.estatura = pestatura;
     this.entierro = [];
+    this.retoques = [];
   }
 
   getDifuntoID() {
@@ -71,6 +72,12 @@ class Difunto {
   }
   getEntierro() {
     return this.entierro;
+  }
+  setCompra(pobjCompra){
+    this.retoques.push(pobjCompra);
+  }
+  getCompra(){
+    return this.retoques
   }
 }
 
@@ -102,4 +109,62 @@ class Entierro {
     return this.idDifunto;
   }
   
+}
+
+class Animador{
+  constructor(pcodigo, pnombre, pcosto, pestado){
+    this.codigo = pcodigo;
+    this.nombre = pnombre;
+    this.costo = pcosto;
+    this.estado = pestado;
+  }
+  getCodigo(){
+    return this.codigo;
+  }
+  getEstado(){
+    return this.estado;
+  }
+  getCosto(){
+    return this.costo;
+  }
+}
+
+class Fiesta{
+  constructor(pfecha, phoras, ppago, pcostoTotal){
+    this.fecha = pfecha;
+    this.horas = phoras;
+    this.pago = ppago;
+    this.costoTotal = pcostoTotal;
+    this.animadores = [];
+  }
+  getFecha(){
+    return this.fecha;
+  }
+  getAnimadores(){
+    return this.animadores;
+  }
+  setAnimadores(pnuevoAnimador){
+    this.animadores.push(pnuevoAnimador);
+  }
+}
+
+class Retoque { // crear clase del retoque al cual se le dara mantenimiento.
+  constructor(pnombre, pprecio) {
+    this.nombre = pnombre,
+    this.precio = pprecio
+  }
+  getNombre(){
+    return this.nombre
+  }
+  
+  getPrecio(){
+    return this.precio
+  }
+}
+
+class Compra {
+  constructor(pnombre, pprecio) {
+    this.nombre = pnombre;
+    this.precio = pprecio;
+  }
 }

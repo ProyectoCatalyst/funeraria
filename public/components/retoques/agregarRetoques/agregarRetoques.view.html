@@ -1,0 +1,59 @@
+<main class="container">
+
+    <section class="row">
+        <div class="col-md-12">
+
+          <h1 class="col-md-12 text-center">Elija sus retoques !</h1>
+      
+            <div class="col-md-12">
+
+                <div class="card col-md-4" ng-repeat="retoques in vm.mostrarretoques">
+      
+                    <div class="card-body row">
+                        <h5 class="card-title col-md-6 text-center">Nombre</h5>
+                        <h5 class="card-title col-md-6 text-center">Precio</h5>
+                
+                        <p class="col-md-6 text-center" ng-model="vm.retoques.nombre">{{ retoques.nombre }}</p>
+                        <p class="col-md-6 text-center" ng-model="vm.retoques.precio" >₡{{ retoques.precio }}</p>
+                
+                        <button type="button" class="btn btn-primary col-md-12" ng-click="vm.agregarretoques ( retoques )">Agregar al carrito</button>
+                    </div>
+      
+                </div>
+
+            </div>
+      
+            <div class="col-md-12">
+      
+                <h1 class="h1 my-5 text-center">Tu compra</h1>
+      
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Opciones</th>
+                            </tr>
+                        </thead>
+                
+                        <tbody>
+                            <tr ng-repeat="compras in vm.mostrarCompra">
+                            <td>{{compras.nombre}}</td>
+                            <td>₡{{compras.precio}}</td>
+                            <td>
+                                <button ng-click="vm.eliminarCompra(compras)" class="btn btn-danger">Eliminar</button>
+                            </td>
+                            </tr>
+                        </tbody>
+                    </table>
+      
+                    <p class="font-weight-bold my-5">Total de esta compra: ₡{{vm.mostrarTotal}}</p>
+        
+          </div>
+      
+        </div>
+
+        </div>
+    </section>
+
+</main>

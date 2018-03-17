@@ -22,10 +22,10 @@
     vm.listarEntierros = servicioUsuarios.retornarEntierro(datos);
 
     vm.agregarFiesta = (pentierro) => {
-      $state.go('registrarFiesta', { objEntierro: JSON.stringify(pentierro) });
+      $state.go('registrarFiesta', { objDifunto: JSON.stringify(objDifuntoSinFormato) });
     }
     vm.agregarRetoques = (pentierro) => {
-      $state.go('agregarRetoques', { objEntierro: JSON.stringify(pentierro) });
+      $state.go('agregarRetoques', { objDifunto: JSON.stringify(objDifuntoSinFormato) });
     }
     vm.editarEntierro = (pentierro) => {
       $state.go('editarEntierro', { objEntierro: JSON.stringify(pentierro) });

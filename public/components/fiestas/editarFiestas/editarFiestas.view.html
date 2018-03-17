@@ -1,0 +1,51 @@
+<main class="container">
+    
+        <section class="row">
+    
+            <div class="col-md-12 mt-5">
+    
+                <h1 class="text-center">Edicion de fiestas</h1>
+    
+                <form action="" class="row" name="frmRegistroFiestas" ng-submit="vm.editarFiesta(vm.fiestaNueva)">
+    
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="txtFecha">Fecha de la fiesta: </label>
+                            <input type="text" class="form-control" id="txtFecha" disabled value="{{vm.fiestaNueva.fecha | date: 'dd MMMM yyyy'}}">
+    
+                            <small class="form-text text-danger">* Campo requerido</small>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <label for="txtCostoFiesta">Cantidad de horas de las fiesta:</label>
+                            <input type="number" class="form-control" ng-model="vm.fiestaNueva.horas" id="txtCostoFiesta" required>
+                            <small class="form-text text-danger">* Campo requerido</small>
+                        </div>
+    
+                        
+                        <div class="form-group">
+                            <div class="metodoPagoFiesta">
+                                <label for="sltPago">Seleccione la forma de pago: </label>
+                            
+                                <select id="sltPago" ng-model="vm.fiestaNueva.pago" class="custom-select">
+                                    <option value>Seleccione una opcion...</option>
+                                    <option value="tarjeta">Tarjeta</option>
+                                    <option  value="efectivo">Efectivo</option>
+                                </select>
+                        
+                                <small class="form-text text-danger">* Campo requerido</small>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Listo</button>
+                    </div>
+    
+                </form>
+    
+            </div>
+    
+        </section>
+    </main>

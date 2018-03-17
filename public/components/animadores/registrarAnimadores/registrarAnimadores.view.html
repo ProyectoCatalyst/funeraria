@@ -1,0 +1,37 @@
+<div ng-include="'./components/includes/_header.html'"></div>
+
+<main class="container">
+
+    <section class="row">
+
+            <div class="col-md-12 mt-5">
+
+                <h1 class="text-center">Agregue animadores</h1>
+
+                <form action="" class="row" name="frmRegistroAnimadores" ng-submit="vm.registrarAnimador(vm.AnimadorNuevo)"  autocomplete="off">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="txtCodigoAnimador">Código: </label>
+                            <input type="number" class="form-control" ng-model="vm.AnimadorNuevo.codigo" id="txtCodigoAnimador" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="txtNombreAnimador">Nombre: </label>
+                            <input type="text" class="form-control" ng-model="vm.AnimadorNuevo.nombre" id="txtNombreAnimador" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="txtCostoAnimador">Costo por hora:</label>
+                            <input type="number" class="form-control" ng-model="vm.AnimadorNuevo.costo" id="txtCostoAnimador" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Registrar Animador</button>
+                    </div>
+                </form>
+
+            </div>
+    </section>
+</main>

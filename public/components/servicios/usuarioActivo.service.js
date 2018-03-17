@@ -19,7 +19,7 @@
       let authUser;
 
       for (let i = 0; i < listaUsuarios.length; i++) {
-        if (listaUsuarios[i].getCedula() === usuarioActivo) {
+        if (listaUsuarios[i].getCorreo() === usuarioActivo) {
           authUser = listaUsuarios[i];
         }
       }
