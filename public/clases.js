@@ -1,5 +1,5 @@
 class Usuario {
-  constructor(pcedula, pnombre, pprimerApellido, psegundoApellido, psexo, pfecha, pprovincia, pcanton, pdistrito, pnombreUsuario, pcorreo, pcontrasenna) {
+  constructor(pcedula, pnombre, pprimerApellido, psegundoApellido, psexo, pfecha, pprovincia, pcanton, pdistrito, pnombreUsuario, pcorreo, pcontrasenna, pestadoDesactivado) {
     this.cedula = pcedula;
     this.nombre = pnombre;
     this.primerApellido = pprimerApellido;
@@ -13,6 +13,7 @@ class Usuario {
     this.correo = pcorreo;
     this.contrasenna = pcontrasenna;
     this.difuntos = [];
+    this.estado = pestadoDesactivado;
   }
 
   getNombreCompleto() {
